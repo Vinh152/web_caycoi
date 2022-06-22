@@ -1,0 +1,130 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --color-green: #86c200;
+    --color-black: #212e50;
+    --color-white:white;
+    --color-hover: #4a90e2;
+    --color-orange:#ff640a;
+    --color-black_opacity:rgba(0, 0, 0, 0.219);
+    --color-footer: #3d3d3d;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+ul{
+    list-style: none;
+}
+html{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+.text-uppercase{
+    text-transform: uppercase;
+}
+.text-opacity{
+    opacity: 0.7;
+}
+.text-fontWeight-500{
+    font-weight: 500 !important;
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.main{
+    width: 100%;
+    padding: 40px 0px;
+}
+.mobile{
+    display: none;
+}
+.main-left{
+    width: 60%;
+}
+.main_frame{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.main_tittle{
+    width: 100%;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    padding: 15px 0px;
+}
+.main_row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 15px 0px;
+}
+.mainL_item-half{
+    width: 45%;
+}
+.mainL_item-long{
+    width: 100%;
+}
+.main_text{
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 10px 0px;
+}
+.main_text-long{
+    width: 100%;
+}
+.main_text-half{
+    width: 45%;
+}
+.mainL_info{
+    width: 100%;
+    font-size: 1rem;
+    padding: 9px 0px 9px 5px;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.171);
+    box-shadow: 0px 0px 3px 1px #00000021;
+}
+
+
+.main-right{
+    width: 35%;
+    height: 50%;
+    padding: 10px;
+    border: 2px solid var(--color-green)
+}
+.main_btn{
+    width: 100%;
+    padding: 15px 0px;
+    text-transform: uppercase;
+    background-color: var(--color-orange);
+    color: white;
+    border: 1px solid var(--color-orange);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+
+@media screen and (max-width:850px) {
+    .mobile{
+        display: block;
+    }
+    .main_frame{
+        flex-direction: column;
+    }
+    .main{
+        padding: 10px;
+    }
+    .main-left{
+        width: 100%;
+    }
+    .main-right{
+        width: 100%;
+    }
+}

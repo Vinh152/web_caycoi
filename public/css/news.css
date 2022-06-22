@@ -1,0 +1,331 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    font-size: 14px;
+    --text-color:white;
+    --text-color-2:black;
+    --background:#333333;
+    --hover-text:#c89979;
+    --border-bottom:#484848;
+    --bachground-item:#c89979;
+    --border-product: rgb(0 0 0 / 30%);
+    --heart-hover:red;
+    --color-face:#3a589d;
+    --color-insta:#3b6994;
+    --color-twitter: #2478ba;
+    --color-wifi: #fc7600;
+    --color-linked: #0072b7;
+    --color-border-bottem-main-left: #f4f4f4;
+    --color-text-main-tittle: #9494a5;
+    --color-2:#d26e4b;
+    --color-green: #86c200;
+    --color-black: #212e50;
+    --color-white:white;
+    --color-hover: #4a90e2;
+    --color-orange:#ff640a;
+    --color-black_opacity:rgba(0, 0, 0, 0.219);
+    --color-footer: #3d3d3d;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+ul{
+    list-style: none;
+}
+html{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+a{
+    text-decoration: none;
+}
+.row{
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.row1{
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.row2{
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.mobile{
+    display: none;
+}
+/* làm phần main */
+.main{
+    margin: 25px 0;
+}
+.main-tittle{
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 25px 0;
+}
+.main-s{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+/* làm phần main left */
+.main-left{
+    width: 25%;
+    padding: 15px 10px;
+}
+.main-left-search{
+    width: 100%;
+    margin: 25px 0;
+}
+.main-left-search-frame{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.main-left-search-frame input{
+    width: 85%;
+    height: 40px;
+    padding: 0px 12px;
+    font-size: 1.2rem;
+    outline: none;
+    border: 1px solid rgba(128, 128, 128, 0.432);
+}
+.main-left-search-frame button{
+    width: 15%;
+    height: 40px;
+    border-radius: 0;
+    outline: none;
+    border: 1px solid var(--color-green);
+    background-color: var(--color-green);
+    color: white;
+    font-size: 1.5rem;
+}
+.main-left-list{
+    margin: 25px 0;
+}
+.main-left-list-tittle{
+    width: 100%;
+    font-size: 1.15rem;
+    margin: 20px 0;
+    text-transform: uppercase;
+    color: #353535;
+}
+.main-left-list-frame{
+    border: 1px solid #3535354b;
+    padding: 10px;
+}
+.main-left-list-frame-item{
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #3535354b;
+    padding: 10px 0;
+}
+.main-left-list-frame-item-img{
+    width: 20%;
+    height: 60px;
+    margin-right: 7px;
+}
+.main-left-list-frame-item-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.main-left-list-frame-item-text{
+    width: 80%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-left-list-frame-item-text p a{
+    color: black;
+}
+/* làm phần main right */
+.main-right{
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+.main-right-item{
+    width: 30%;
+    border: 1px solid rgba(128, 128, 128, 0.534);
+    box-shadow: 1px 1px 18px 4px gray;
+    margin: 10px;
+    position: relative;
+}
+.main-right-item img{
+    width: 100%;
+    height: 180px;
+}
+.main-right-item-text{
+    padding: 11px;
+}
+.main-right-item-text-tittle{
+    font-size: 1.2rem;
+    height: 60px;
+    overflow-y: hidden;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-right-item-text-tittle a{
+    color: black;
+}
+.main-right-item-text-information
+{
+    height: 70px;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.05rem;
+}
+.main-right-item-text-information a{
+    color: black;
+}
+.main-right-item-time{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-green);
+    color: white;
+    z-index: 1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 25px;
+    left: -20px;
+}
+.main-right-item-time p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 700;
+}
+
+
+
+/* làm phần main-7 */
+.main-7{
+    margin: 50px 0px 10px 0px;
+}
+.main-7-s{
+    width: 100%;
+    height: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-top: 1px solid black;
+}
+.main-7-tittle{
+    width: 500px;
+}
+.main-7-tittle h2{
+    font-size: 1.9rem;
+}
+.main-7-search{
+   width: 40%;
+   display: flex;
+   justify-content: flex-end;
+}
+.main-7-search input{
+    width: 70%;
+    height: 40px;
+    padding: 0 11px;
+    border: none;
+    outline: none;
+    background-color: #f1f1f1;
+    font-size: 1.1rem;
+}
+.main-7-search button{
+    width: 25%;
+    height: 40px;
+    border: none;
+    outline: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--text-color);
+    background-color: #c89979;
+    cursor: pointer;
+    transition: 0.6s;
+}
+.main-7-search button:hover{
+    background-color: var(--heart-hover);
+    transition: 0.6s;
+}
+
+
+/* hết làm phần main */
+
+
+/* làm responsive phần main */
+@media screen and (max-width: 850px) {
+    .main-s{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .main-left{
+        order: 2;
+        width: 100%;
+    }
+    .main-right{
+        order: 1;
+        width: 90%;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+    }
+    .main-right-item{
+        width: 100%;
+        margin: 10px 0px;
+    }
+
+}
+/* làm phần responsive của main-7 */
+@media screen and (max-width: 835px) {
+    .main-7-tittle{
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+    }
+    .main-7-search{
+        width: 100%;
+        padding: 0 30px;
+    }
+}
+@media screen and (max-width: 400px) {
+    #main-7-search-btn{
+        font-size: 1.1rem;
+    }
+}
+
