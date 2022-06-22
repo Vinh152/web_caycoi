@@ -35,7 +35,7 @@ class Controller_client extends Controller
         
         $danhmucs=Model_danhmuc::all();
         $sanpham_5=Model_sanpham::offset(0)->limit(5)->get();
-        $sanphams=Model_sanpham::where("ID_danhmuc","=",$danhmuc)->orderBy('gia_tien', 'asc')->paginate(2);
+        $sanphams=Model_sanpham::where("ID_danhmuc","=",$danhmuc)->orderBy('gia_tien', 'asc')->paginate(5);
         return view("client.product", compact("sanphams", "danhmucs", "sanpham_5"));
     }
 
@@ -50,10 +50,9 @@ class Controller_client extends Controller
         // dd($request->all());
         $max= $request->Price_max;
         $min= $request->Price_min;
-        echo $max;
         $danhmucs=Model_danhmuc::all();
         $sanpham_5=Model_sanpham::offset(0)->limit(5)->get();
-        $sanphams=Model_sanpham::where('gia_tien','>',$min,'and','gia_tien', '<', $max)->paginate(1);
-        return view("client.product", compact("sanphams", "danhmucs", "sanpham_5"));
+        $sanphams=Model_sanpham::where('gia_tien', '>', $min)->where('gia_tien', '<', $max)->paginate(1);
+        return view("client.product", compact("sanphams", "danhmucs", "sanpham_5")); 
     }
 }
