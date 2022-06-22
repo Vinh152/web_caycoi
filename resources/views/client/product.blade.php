@@ -152,7 +152,9 @@
                     <p class="pagipage_number"><a href="">1</a></p>
                     <p class="pagipage_number"><a href="">1</a></p>
                     <p class="pagipage_number"><a href=""><i class="fas fa-chevron-right"></i></a></p> --}}
-                     {{$sanphams->links('client.layout.paginate')}}
+                    {{-- {{ $sanphams->appends(request()->query())->links('client.layout.paginate')}} --}}
+                    {{ $sanphams->withQueryString()->links('client.layout.paginate') }}
+                     {{-- {{$sanphams->links('client.layout.paginate')}} --}}
                 
             </div>
         </div>

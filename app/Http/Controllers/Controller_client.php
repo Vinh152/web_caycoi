@@ -47,12 +47,13 @@ class Controller_client extends Controller
         return view("client.product_info", compact("sanphams", "danhmucs", "sanpham_5"));
     }
     public function price_sanpham(Request $request){
-        dd($request->all());
-        // $max= $request->Price_max;
-        // echo $max;
-        // $danhmucs=Model_danhmuc::all();
-        // $sanpham_5=Model_sanpham::offset(0)->limit(5)->get();
-        // $sanphams=Model_sanpham::where('gia_tien', '<', $max)->paginate(1);
-        // return view("client.product", compact("sanphams", "danhmucs", "sanpham_5"));
+        // dd($request->all());
+        $max= $request->Price_max;
+        $min= $request->Price_min;
+        echo $max;
+        $danhmucs=Model_danhmuc::all();
+        $sanpham_5=Model_sanpham::offset(0)->limit(5)->get();
+        $sanphams=Model_sanpham::where('gia_tien','>',$min,'and','gia_tien', '<', $max)->paginate(1);
+        return view("client.product", compact("sanphams", "danhmucs", "sanpham_5"));
     }
 }
