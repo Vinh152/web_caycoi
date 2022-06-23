@@ -55,4 +55,13 @@ class Controller_client extends Controller
         $sanphams=Model_sanpham::where('gia_tien', '>', $min)->where('gia_tien', '<', $max)->paginate(1);
         return view("client.product", compact("sanphams", "danhmucs", "sanpham_5")); 
     }
+
+    public function search_sanpham(Request $request){
+        $keywork=$request->sanpham_search;
+        echo $keywork;
+        $danhmucs=Model_danhmuc::all();
+        $sanpham_5=Model_sanpham::offset(0)->limit(5)->get();
+        $sanphams=Model_sanpham::where("ten_san_pham", 'like', '%'.$keywork .'%')->paginate(5);
+        return view("client.product", compact("sanphams", "danhmucs", "sanpham_5")); 
+    }
 }

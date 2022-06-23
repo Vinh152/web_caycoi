@@ -27,8 +27,9 @@
                 <a href=""><img class="Hmenu_item_logo" src="/logo/logo-cay-canh.png" alt=""></a>
             </div>
             <div class="Hmenu_item Hmenu_item-2">
-                <form class="Hmenu_item_form" action="">
-                    <input type="text" name="search">
+                <form class="Hmenu_item_form" action="{{route("client.search_sanpham")}}" method="GET">
+                  @csrf
+                    <input type="text" name="sanpham_search">
                     <button><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
