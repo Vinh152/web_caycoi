@@ -58,10 +58,23 @@ class Controller_client extends Controller
 
     public function search_sanpham(Request $request){
         $keywork=$request->sanpham_search;
-        echo $keywork;
         $danhmucs=Model_danhmuc::all();
         $sanpham_5=Model_sanpham::offset(0)->limit(5)->get();
         $sanphams=Model_sanpham::where("ten_san_pham", 'like', '%'.$keywork .'%')->paginate(5);
         return view("client.product", compact("sanphams", "danhmucs", "sanpham_5")); 
+    }
+
+    public function tintuc(){
+        $tintucs= Model_tintuc::all();
+        $tintuc_5= Model_tintuc::offset(0)->limit(5)->get();
+        $danhmucs=Model_danhmuc::all();
+        return view("client.news", compact("danhmucs", "tintucs", "tintuc_5"));
+    }
+
+    public function tintuc_info($id){
+        $tintucs= Model_tintuc::find($id);
+        $tintuc_5= Model_tintuc::offset(0)->limit(5)->get();
+        $danhmucs=Model_danhmuc::all();
+        return view("client.news_info", compact("danhmucs","tintuc_5", "tintucs"));
     }
 }

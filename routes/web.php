@@ -29,6 +29,8 @@ Route::get('/sanpham/info/{id}', [Controller_client::class, 'sanpham_info'])->na
 Route::get('/sanpham/{danhmuc}', [Controller_client::class, 'filter_sanpham'])->name('client.filter_sanpham');
 Route::get('/price_sanpham', [Controller_client::class, 'price_sanpham'])->name('client.price_sanpham');
 Route::get('/search_sanpham', [Controller_client::class, 'search_sanpham'])->name('client.search_sanpham');
+Route::get('/tintuc', [Controller_client::class, 'tintuc'])->name('client.tintuc');
+Route::get('/tintuc_info/{id}', [Controller_client::class, 'tintuc_info'])->name('client.tintuc_info');
 Route::group(['middleware' => ['AuthCheck']],function(){
     Route::get('/admin', [Controller_login::class, 'index'])->name('login');
     Route::get('/admin/create', [Controller_login::class, 'create'])->name('login.create');
