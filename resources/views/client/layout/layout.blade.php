@@ -50,8 +50,8 @@
                     <div class="Hmenu_item Hmenu_item-4" onclick="cart_drop()" >
                         <div class="Hmenu_cart_hover">
                             <div class="Hmenu_cart_hover_frame">
-                                <p class="Hmenu_item_price"><a href="">Giỏ hàng / <span>999.000.000</span>đ</a></p>
-                                <a class="Hmenu_item_box" href="" >0</a>
+                                <p class="Hmenu_item_price"><a href="{{route('client.cart')}}">Giỏ hàng / <span>999.000.000</span>đ</a></p>
+                                <a class="Hmenu_item_box" href="{{route('client.cart')}}" >0</a>
                             </div>
 
                             <div class="Hmenu_cart_drop Hmenu_cart_drop-hover">
@@ -100,8 +100,8 @@
                     
                                         <p class="Hmenu_cart_allprice">Tổng sản phẩm : <span>450.000.000</span>đ</p>
                                         <div class="Hmenu_cart_btn">
-                                            <a class="btn btn-green btn-long" href="">Xem giỏ hàng</a>
-                                            <a class="btn btn-orange btn-long" href="">Thanh toán</a>
+                                            <a class="btn btn-green btn-long" href="{{route('client.cart')}}">Xem giỏ hàng</a>
+                                            <a class="btn btn-orange btn-long" href="{{route('client.cart')}}">Thanh toán</a>
                                         </div>
                                     </div>
                                     <!-- đây là phần không có sản phẩm mua hàng -->
@@ -481,7 +481,7 @@ $('.news_frame').slick({
 
         });
     </script>
-    <script src="./JS/header.js"></script>
+    <script src="/js/header.js"></script>
     <link rel="stylesheet" href="/css/header_footer.css">
 </body>
 </html>

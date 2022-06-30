@@ -31,6 +31,8 @@ Route::get('/price_sanpham', [Controller_client::class, 'price_sanpham'])->name(
 Route::get('/search_sanpham', [Controller_client::class, 'search_sanpham'])->name('client.search_sanpham');
 Route::get('/tintuc', [Controller_client::class, 'tintuc'])->name('client.tintuc');
 Route::get('/tintuc_info/{id}', [Controller_client::class, 'tintuc_info'])->name('client.tintuc_info');
+Route::get('/cart', [Controller_client::class, 'cart'])->name('client.cart');
+Route::get('/cart_buy/{id}', [Controller_client::class, 'cart_buy'])->name('client.cart_buy');
 Route::group(['middleware' => ['AuthCheck']],function(){
     Route::get('/admin', [Controller_login::class, 'index'])->name('login');
     Route::get('/admin/create', [Controller_login::class, 'create'])->name('login.create');

@@ -13,14 +13,20 @@
                           <th class="main_table_header main_table_column-center">số lượng</th>
                           <th class="main_table_header main_table_column-right table_display-none">tổng cộng</th>
                     </thead>
+
+                    @php
+                        $content=Cart::content();
+                    @endphp
+                    @foreach ($content as $row)
                     <tr class="main_table_row">
                       <td class="main_table_column main_table_column-20"><a href="" class="main_table_column_delete">X</a></td>
-                      <td class="main_table_column main_table_column-70"><img class="main_table_column_img" src="./san_pham/banner-.jpg" alt=""></td>
-                      <td class="main_table_column ">Tùng la hán</td>
-                      <td class="main_table_column main_table_column-fontweight table_display-none">450.000.000đ</td> 
-                      <td class="main_table_column"><div class="main_table_column_row"><a href="" class="main_table_column_tanggiam main_table_column_tanggiam-active">+</a>  <p class="main_table_column_tanggiam">15</p>  <a href="" class="main_table_column_tanggiam main_table_column_tanggiam-active">-</a></div></td>
-                      <td class="main_table_column main_table_column-right main_table_column-fontweight table_display-none">450.000.000đ</td>
+                      <td class="main_table_column main_table_column-70"><img class="main_table_column_img" src="/img_sanpham/{{$row->options->img}}" alt=""></td>
+                      <td class="main_table_column ">{{$row->name}}</td>
+                      <td class="main_table_column main_table_column-fontweight table_display-none">{{number_format($row->price)}}đ</td> 
+                      <td class="main_table_column"><div class="main_table_column_row"><a href="" class="main_table_column_tanggiam main_table_column_tanggiam-active">+</a>  <p class="main_table_column_tanggiam">{{$row->qty}}</p>  <a href="" class="main_table_column_tanggiam main_table_column_tanggiam-active">-</a></div></td>
+                      <td class="main_table_column main_table_column-right main_table_column-fontweight table_display-none">{{number_format($row->price*$row->qty)}}đ</td>
                   </tr>
+                  @endforeach
                   <!-- <tr class="main_table_row">
                       <td class="main_table_empty" colspan="6">Không có sản phẩm trong giỏ hàng</td>
                   </tr> -->

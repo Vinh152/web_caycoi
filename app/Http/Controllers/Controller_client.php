@@ -7,7 +7,7 @@ use App\Models\Model_sanpham;
 use App\Models\Model_tintuc;
 use App\Models\Model_danhmuc;
 use Illuminate\Database\Eloquent\Model;
-
+use Cart;
 class Controller_client extends Controller
 {
     public function index(){
@@ -76,5 +76,24 @@ class Controller_client extends Controller
         $tintuc_5= Model_tintuc::offset(0)->limit(5)->get();
         $danhmucs=Model_danhmuc::all();
         return view("client.news_info", compact("danhmucs","tintuc_5", "tintucs"));
+    }
+
+    //lam phan mua hang
+    public function cart(){
+        $danhmucs=Model_danhmuc::all();
+        return view("client.cart", compact("danhmucs"));
+    }
+    public function cart_buy($id){
+        $sanpham=Model_sanpham::find($id);
+        // Cart::add('293ad', 'Product 1', 1, 9.99, 550);
+        $data['id']=$id;
+        $data['qty']=12;
+        $data['name']=$sanpham->ten_san_pham;
+        $data['price']=$sanpham->gia_tien;
+        $data['weight']=12;
+        $data['options']['img']=$sanpham->anh;
+        Cart::add($data);
+        $danhmucs=Model_danhmuc::all();
+        return view("client.cart", compact("danhmucs"));
     }
 }

@@ -59,7 +59,7 @@
                         <button class="main-1-right-number-plus" onclick="solong_tang()"><i class="fas fa-plus"></i></button>
                     </div>
                     <div class="main-1-right-buy">
-                        <a href="" class="main-1-right-buy-btn">Thêm vào giỏ</a>
+                        <a href="{{route("client.cart_buy", $sanphams->ID_sanpham)}}" class="main-1-right-buy-btn">Thêm vào giỏ</a>
                     </div>
                 </div>
 
