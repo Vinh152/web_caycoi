@@ -9,6 +9,8 @@ class Model_giohang extends Model
 {
     use HasFactory;
     protected $table="giohang";
+    protected $primaryKey="ID_giohang";
+    public $incrementing = false;
     public function chitietgiohang(){
         return $this->hasOne(Model_chitietgiohang::class, "ID_giohang","ID_giohang");
     }

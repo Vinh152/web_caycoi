@@ -4,6 +4,7 @@
  <!-- làm phần main -->
  <div class="main">
     <div class="container">
+        <h1 class="thanhtoan_thanhcong">{{session()->get('thanhcong');}}</h1>
         <div class="main_frame">
         <div class="main-left">
                 <table class="main_table">
@@ -19,11 +20,11 @@
                     @endphp
                     @foreach ($content as $row)
                     <tr class="main_table_row">
-                      <td class="main_table_column main_table_column-20"><a href="" class="main_table_column_delete">X</a></td>
+                      <td class="main_table_column main_table_column-20"><a href="{{route("client.cart_remove", $row->rowId)}}" class="main_table_column_delete">X</a></td>
                       <td class="main_table_column main_table_column-70"><img class="main_table_column_img" src="/img_sanpham/{{$row->options->img}}" alt=""></td>
                       <td class="main_table_column ">{{$row->name}}</td>
                       <td class="main_table_column main_table_column-fontweight table_display-none">{{number_format($row->price)}}đ</td> 
-                      <td class="main_table_column"><div class="main_table_column_row"><a href="" class="main_table_column_tanggiam main_table_column_tanggiam-active">+</a>  <p class="main_table_column_tanggiam">{{$row->qty}}</p>  <a href="" class="main_table_column_tanggiam main_table_column_tanggiam-active">-</a></div></td>
+                      <td class="main_table_column"><div class="main_table_column_row"><a href="{{route('client.cart_tang', ['id'=>$row->rowId, 'soluong'=>$row->qty])}}" class="main_table_column_tanggiam main_table_column_tanggiam-active">+</a>  <p class="main_table_column_tanggiam">{{$row->qty}}</p>  <a href="{{route('client.cart_giam', ['id'=>$row->rowId, 'soluong'=>$row->qty])}}" class="main_table_column_tanggiam main_table_column_tanggiam-active">-</a></div></td>
                       <td class="main_table_column main_table_column-right main_table_column-fontweight table_display-none">{{number_format($row->price*$row->qty)}}đ</td>
                   </tr>
                   @endforeach
@@ -31,7 +32,7 @@
                       <td class="main_table_empty" colspan="6">Không có sản phẩm trong giỏ hàng</td>
                   </tr> -->
                 </table>
-              <a href="" class="main_left_return"><i class="fas fa-long-arrow-alt-left"></i> Tiếp tục xem sản phẩm</a>
+              <a href="{{route("client.sanpham")}}" class="main_left_return"><i class="fas fa-long-arrow-alt-left"></i> Tiếp tục xem sản phẩm</a>
         </div>
 
         <div class="main-line"></div>
@@ -41,31 +42,32 @@
             <h2 class="mainR_tittle">Tổng số lượng</h2>
             <div class="mainR_row">
                 <p class="mainR_text">Tổng cộng</p>
-                <p class="mainR_price">450.000.000đ</p>
+                <p class="mainR_price">{{Cart::subtotal();}}</p>
             </div>
 
             <div class="mainR_row">
               <p class="mainR_text">Giao hàng</p>
               <div class="mainR_row-right">
                   <p class="mainR_text">Phí giao hàng</p>
-                  <p class="mainR_price">15.000đ</p>
+                  <p class="mainR_price">Free</p>
               </div>
             </div>
             <div class="mainR_row">
               <p class="mainR_text">Tổng cộng</p>
-              <p class="mainR_price">450.000.000đ</p>
+              <p class="mainR_price">{{Cart::subtotal();}}</p>
           </div>
-          <div class="mainR_row">
-              <a href="" class="mainR_btn">tiến hành thanh toán</a>
+          <div class="mainR_row @php
+          $so=(int)Cart::subtotal();
+          if($so==0)
+          {
+            echo "thanhtoan_not";
+          }
+          else{
+            echo " ";
+          }
+          @endphp">
+              <a href="{{route("client.cart_info")}}" class="mainR_btn">tiến hành thanh toán</a>
           </div>
-         <div class="mainR_row">
-          <p class="mainR_text mainR_text-left mainR_text-big"><i class="fa-solid fa-tag"></i> Mã ưu đãi</p>
-         </div>
-
-         <form class="mainR_sale">
-             <input class="mainR_sale_input" type="text" name="sale" placeholder="Mã ưu đãi">
-             <button class="mainR_sale_btn">Áp dụng mã ưu đãi</button>
-         </form>
 
         </div>
         </div>

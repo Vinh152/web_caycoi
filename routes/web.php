@@ -33,6 +33,11 @@ Route::get('/tintuc', [Controller_client::class, 'tintuc'])->name('client.tintuc
 Route::get('/tintuc_info/{id}', [Controller_client::class, 'tintuc_info'])->name('client.tintuc_info');
 Route::get('/cart', [Controller_client::class, 'cart'])->name('client.cart');
 Route::get('/cart_buy/{id}', [Controller_client::class, 'cart_buy'])->name('client.cart_buy');
+Route::get('/cart_remove/{id}', [Controller_client::class, 'cart_remove'])->name('client.cart_remove');
+Route::get('/cart_them/{id}/{soluong}', [Controller_client::class, 'cart_tang'])->name('client.cart_tang');
+Route::get('/cart_xoa/{id}/{soluong}', [Controller_client::class, 'cart_giam'])->name('client.cart_giam');
+Route::get('/cart_info', [Controller_client::class, 'cart_info'])->name('client.cart_info');
+Route::post('/thanhtoan', [Controller_client::class, 'thanhtoan'])->name('client.thanhtoan');
 Route::group(['middleware' => ['AuthCheck']],function(){
     Route::get('/admin', [Controller_login::class, 'index'])->name('login');
     Route::get('/admin/create', [Controller_login::class, 'create'])->name('login.create');

@@ -267,3 +267,15 @@ html{
         width: 70%;
     }
 }
+
+.thanhtoan_thanhcong{
+    text-align: center;
+    font-size: 0.9rem;
+    color: red;
+    padding: 15px 0px;
+}
+
+.thanhtoan_not{
+    pointer-events: none;
+    opacity: 0.8;
+}

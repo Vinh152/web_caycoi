@@ -59,46 +59,22 @@
                                     <h3 class="mobile Hmenu_cart_tittle">Giỏ hàng</h3>
                                     <div class="Hmenu_cart-yes">
                                         <div class="Hmenu_cart_thugon">
+                                          @php
+                        $content=Cart::content();
+                    @endphp
+                    @foreach ($content as $row)
                                             <div class="Hmenu_cart_item">
-                                                <img src="./san_pham/banner-.jpg" alt="">
+                                                <img src="/img_sanpham/{{$row->options->img}}" alt="">
                                                 <div class="Hmenu_cart_item_info">
-                                                    <p class="Hmenu_cart_item_info_name">Bonsai</p>
-                                                    <p class="Hmenu_cart_item_info_price"><span>1</span>x <span>85.000.000</span>đ</p>
+                                                    <p class="Hmenu_cart_item_info_name">{{$row->name}}</p>
+                                                    <p class="Hmenu_cart_item_info_price"><span>{{$row->qty}}</span>x <span>{{number_format($row->price)}}</span>đ</p>
                                                 </div>
-                                                <a class="Hmenu_cart_item_delete" href="">X</a>
+                                                <a class="Hmenu_cart_item_delete" href="{{route("client.cart_remove", $row->rowId)}}">X</a>
                                             </div>
-                    
-                                            <div class="Hmenu_cart_item">
-                                                <img src="./san_pham/banner-.jpg" alt="">
-                                                <div class="Hmenu_cart_item_info">
-                                                    <p class="Hmenu_cart_item_info_name">Bonsai</p>
-                                                    <p class="Hmenu_cart_item_info_price"><span>1</span>x <span>85.000.000</span>đ</p>
-                                                </div>
-                                                <a class="Hmenu_cart_item_delete" href="">X</a>
-                                            </div>
-                    
-                    
-                                            <div class="Hmenu_cart_item">
-                                                <img src="./san_pham/banner-.jpg" alt="">
-                                                <div class="Hmenu_cart_item_info">
-                                                    <p class="Hmenu_cart_item_info_name">Bonsai</p>
-                                                    <p class="Hmenu_cart_item_info_price"><span>1</span>x <span>85.000.000</span>đ</p>
-                                                </div>
-                                                <a class="Hmenu_cart_item_delete" href="">X</a>
-                                            </div>
-                    
-                    
-                                            <div class="Hmenu_cart_item">
-                                                <img src="./san_pham/banner-.jpg" alt="">
-                                                <div class="Hmenu_cart_item_info">
-                                                    <p class="Hmenu_cart_item_info_name">Bonsai</p>
-                                                    <p class="Hmenu_cart_item_info_price"><span>1</span>x <span>85.000.000</span>đ</p>
-                                                </div>
-                                                <a class="Hmenu_cart_item_delete" href="">X</a>
-                                            </div>
+                    @endforeach
                                         </div>
                     
-                                        <p class="Hmenu_cart_allprice">Tổng sản phẩm : <span>450.000.000</span>đ</p>
+                                        <p class="Hmenu_cart_allprice">Tổng sản phẩm : <span>{{Cart::subtotal();}}</span>đ</p>
                                         <div class="Hmenu_cart_btn">
                                             <a class="btn btn-green btn-long" href="{{route('client.cart')}}">Xem giỏ hàng</a>
                                             <a class="btn btn-orange btn-long" href="{{route('client.cart')}}">Thanh toán</a>

@@ -139,7 +139,7 @@
                             <p class="prouductR_text_type"><a href="">Bonsai</a></p>
                             <p class="prouductR_text_name"><a href="{{route('client.sanpham_info', $sanpham->ID_sanpham)}}">{{$sanpham->ten_san_pham}}</a></p>
                             <p class="productR_text_price">{{number_format($sanpham->gia_tien)}}đ</p>
-                            <a class="productR_btn" href="">Thêm vào giỏ</a>
+                            <a class="productR_btn" href="{{route("client.cart_buy", $sanpham->ID_sanpham)}}">Thêm vào giỏ</a>
                         </div>
                     </div>
                     @endforeach
