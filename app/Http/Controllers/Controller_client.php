@@ -54,7 +54,7 @@ class Controller_client extends Controller
         $min= $request->Price_min;
         $danhmucs=Model_danhmuc::all();
         $sanpham_5=Model_sanpham::offset(0)->limit(5)->get();
-        $sanphams=Model_sanpham::where('gia_tien', '>', $min)->where('gia_tien', '<', $max)->paginate(1);
+        $sanphams=Model_sanpham::where('gia_tien', '>', $min)->where('gia_tien', '<', $max)->paginate(5);
         return view("client.product", compact("sanphams", "danhmucs", "sanpham_5")); 
     }
 
@@ -176,7 +176,7 @@ class Controller_client extends Controller
         }
         Cart::destroy();
         $danhmucs=Model_danhmuc::all();
-        return view("client.cart", compact("danhmucs"))->with("thanhcong", "Mua hàng thành công rồi");
+        return view("client.cart",)->with('danhmucs', $danhmucs)->with("thanhcong1","Mua hàng thành công rồi");
     }
     
 }

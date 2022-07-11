@@ -4,7 +4,9 @@
  <!-- làm phần main -->
  <div class="main">
     <div class="container">
-        <h1 class="thanhtoan_thanhcong">{{session()->get('thanhcong');}}</h1>
+        @if (!empty($thanhcong1))
+        <h1 class="thanhtoan_thanhcong">{{$thanhcong1}}</h1>
+        @endif
         <div class="main_frame">
         <div class="main-left">
                 <table class="main_table">
