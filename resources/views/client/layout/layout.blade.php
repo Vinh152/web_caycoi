@@ -118,8 +118,6 @@
                             @endforeach
                         </ul>
                     </li>
-                    <li class="menu_item"><a href="">Liên hệ</a></li>
-                    <li class="menu_item"><a href="">Hệ thống siêu thị</a></li>
                 </ul>
             </div>
         </div>
