@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller_tintuc;
 use App\Http\Controllers\Controller_nhanvien;
 use App\Http\Controllers\Controller_login;
 use App\Http\Controllers\Controller_client;
+use App\Http\Controllers\Controller_giohang;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,6 +51,7 @@ Route::group(['middleware' => ['AuthCheck']],function(){
         'admin_sanpham'=> Controller_sanpham::class,
         'admin_tintuc'=> Controller_tintuc::class,
         'admin_nhanvien'=> Controller_nhanvien::class,
-        'admin_login'=>Controller_login::class
+        'admin_login'=>Controller_login::class,
+        'admin_giohang'=>Controller_giohang::class
     ]);
 });

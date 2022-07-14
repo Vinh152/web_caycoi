@@ -254,31 +254,13 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label">Dashboard</li>
                     <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <a class="has-arrow" href="{{route("admin.home")}}" aria-expanded="false">
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./trangchu.html">Trang chủ</a></li>
+                            <li><a href="{{route("admin.home")}}">Trang chủ</a></li>
                             <!-- <li><a href="./index-2.html">Home 2</a></li> -->
                         </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-graph menu-icon"></i> <span class="nav-text">Thống kê</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./chart-flot.html">Flot</a></li>
-                            <li><a href="./chart-morris.html">Morris</a></li>
-                            <li><a href="./chart-chartjs.html">Chartjs</a></li>
-                            <li><a href="./chart-chartist.html">Chartist</a></li>
-                            <li><a href="./chart-sparkline.html">Sparkline</a></li>
-                            <li><a href="./chart-peity.html">Peity</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="widgets.html" aria-expanded="false">
-                            <i class="icon-badge menu-icon"></i><span class="nav-text">Widget</span>
-                        </a>
                     </li>
                     <li class="nav-label">Quản lý các mục</li>
                     <li>
@@ -317,6 +299,14 @@
                         <ul aria-expanded="false">
                             <li><a href="{{route('admin_nhanvien.index')}}">Trang chủ nhân viên</a></li>
                             <li><a href="{{route('admin_nhanvien.create')}}">Thêm nhân viên</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="./sanpham_them.blade.php" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Giỏ hàng</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{route('admin_giohang.index')}}">Trang chủ giỏ hàng</a></li>
                         </ul>
                     </li>
                 </ul>

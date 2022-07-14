@@ -12,6 +12,6 @@ class Model_giohang extends Model
     protected $primaryKey="ID_giohang";
     public $incrementing = false;
     public function chitietgiohang(){
-        return $this->hasOne(Model_chitietgiohang::class, "ID_giohang","ID_giohang");
+        return $this->hasMany(Model_chitietgiohang::class, "ID_giohang","ID_giohang");
     }
 }

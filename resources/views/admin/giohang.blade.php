@@ -21,7 +21,6 @@
                                         <thead>
                                             <tr>
                                                 <th>ID giỏ hàng</th>
-                                                <th>ID nhân viên</th>
                                                 <th>Họ</th>
                                                 <th>Tên</th>
                                                 <th>Quốc gia</th>
@@ -32,96 +31,34 @@
                                                 <th>Ghi chú</th>
                                                 <th>Tổng đơn hàng</th>
                                                 <th>Trạng thái</th>
+                                                <th>Ngày mua</th>
                                                 <th>Chi tiết</th>
                                                 <th>Chức năng</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($giohangs as $giohang )
                                             <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td><a class="TC-font_size TC-red" href="">Chi tiết</a></td>
-                                                <td><p class="TC-column"><a class="TC-font_size TC-green" href=""><i class="fa-solid fa-wrench"></i> Hoàn thành</a><a class="TC-font_size TC-red" href=""><i class="fa-solid fa-trash-can"></i> Xóa</a></p></td>
+                                                <td>{{$giohang->ID_giohang}}</td>
+                                                <td>{{$giohang->ho}}</td>
+                                                <td>{{$giohang->ten}}</td>
+                                                <td>{{$giohang->quoc_gia}}</td>
+                                                <td>{{$giohang->thanh_pho}}</td>
+                                                <td>{{$giohang->dia_diem}}</td>
+                                                <td>{{$giohang->sdt}}</td>
+                                                <td>{{$giohang->email}}</td>
+                                                <td>{{$giohang->ghi_chu}}</td>
+                                                <td>{{number_format($giohang->tong_don_hang)}}đ</td>
+                                                <td>{{$giohang->trang_thai}}</td>
+                                                <td>{{$giohang->created_at}}</td>
+                                                <td><a class="TC-font_size TC-red" href="{{route('admin_giohang.show', $giohang->ID_giohang)}}">Chi tiết</a></td>
+                                                <td><p class="TC-column"><a class="TC-font_size TC-green" href=""><i class="fa-solid fa-wrench"></i> Hoàn thành</a></p></td>
                                             </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td><a class="TC-font_size TC-red" href="">Chi tiết</a></td>
-                                                <td><p class="TC-column"><a class="TC-font_size TC-green" href=""><i class="fa-solid fa-wrench"></i> Hoàn thành</a><a class="TC-font_size TC-red" href=""><i class="fa-solid fa-trash-can"></i> Xóa</a></p></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td><a class="TC-font_size TC-red" href="">Chi tiết</a></td>
-                                                <td><p class="TC-column"><a class="TC-font_size TC-green" href=""><i class="fa-solid fa-wrench"></i> Hoàn thành</a><a class="TC-font_size TC-red" href=""><i class="fa-solid fa-trash-can"></i> Xóa</a></p></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td><a class="TC-font_size TC-red" href="">Chi tiết</a></td>
-                                                <td><p class="TC-column"><a class="TC-font_size TC-green" href=""><i class="fa-solid fa-wrench"></i> Hoàn thành</a><a class="TC-font_size TC-red" href=""><i class="fa-solid fa-trash-can"></i> Xóa</a></p></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>1.000.000.000đ</td>
-                                                <td><a class="TC-font_size TC-red" href="">Chi tiết</a></td>
-                                                <td><p class="TC-column"><a class="TC-font_size TC-green" href=""><i class="fa-solid fa-wrench"></i> Hoàn thành</a><a class="TC-font_size TC-red" href=""><i class="fa-solid fa-trash-can"></i> Xóa</a></p></td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                         <tfoot>
                                             <tr>
                                                 <th>ID giỏ hàng</th>
-                                                <th>ID nhân viên</th>
                                                 <th>Họ</th>
                                                 <th>Tên</th>
                                                 <th>Quốc gia</th>
@@ -132,6 +69,7 @@
                                                 <th>Ghi chú</th>
                                                 <th>Tổng đơn hàng</th>
                                                 <th>Trạng thái</th>
+                                                <th>Ngày mua</th>
                                                 <th>Chi tiết</th>
                                                 <th>Chức năng</th>
                                             </tr>
