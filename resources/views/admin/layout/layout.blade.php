@@ -48,7 +48,7 @@
         ***********************************-->
         <div class="nav-header">
             <div class="brand-logo">
-                <a href="./trangchu.html">
+                <a href="{{route("admin.home")}}">
                     <b class="logo-abbr"><img src="/images/logo.png" alt=""> </b>
                     <span class="logo-compact"><img src="/images/logo-compact.png" alt=""></span>
                     <span class="brand-title">

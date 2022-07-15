@@ -50,8 +50,7 @@ class Controller_giohang extends Controller
     {
         $donhang=Model_giohang::find($id);
         $chitiet=$donhang->chitietgiohang;
-        dump($chitiet);
-        return view('admin.chitietgiohang', compact($chitiet));
+        return view('admin.chitietgiohang', compact('chitiet'));
     }
 
     /**

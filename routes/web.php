@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller_adminTrangchu;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller_sanpham;
 use App\Http\Controllers\Controller_danhmuc;
@@ -43,9 +44,7 @@ Route::post('/thanhtoan', [Controller_client::class, 'thanhtoan'])->name('client
 Route::group(['middleware' => ['AuthCheck']],function(){
     Route::get('/admin', [Controller_login::class, 'index'])->name('login');
     Route::get('/admin/create', [Controller_login::class, 'create'])->name('login.create');
-    Route::get('/admin/home', function () {
-        return view('admin.trangchu');
-    })->name('admin.home');
+    Route::get('/admin/home',[Controller_adminTrangchu::class, 'index'])->name('admin.home');
     Route::resources([
         'admin_danhmuc'=> Controller_danhmuc::class,
         'admin_sanpham'=> Controller_sanpham::class,
