@@ -103,7 +103,6 @@
                         </form>
                     </li>
                     <li class="menu_item"><a href="{{route("client.index")}}">Trang chủ</a></li>
-                    <li class="menu_item"><a href="">Giới thiệu</a></li>
                     <li class="menu_item"><a href="{{route('client.tintuc')}}">Kinh nghiệm hay </a></li>
                     <li class="menu_item menu_item-line"><label for="menu_toggle_connect" class="menu_item_label"><a href="{{route("client.sanpham")}}">Sản phẩm</a> <i class="fa-solid fa-arrow-down mobile"></i></label>
                         <ul class="menu_drop menu_touch">

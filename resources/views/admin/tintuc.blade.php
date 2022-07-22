@@ -37,7 +37,7 @@
                                                 <td><img class="TC_img_card" src="/tin_tuc/{{$data->anh}}" alt=""></td>
                                                 <td class="TC_td-30"><p class="TC_td-hide">{{$data->mo_ta}}</p></td>
                                              <td><p class="TC-column"><form class="TC_form_function" method="GET" action="{{route('admin_tintuc.edit',$data->ID_tintuc)}}"><button class="TC_btn_function TC_btn_function-fix"><i class="fa-solid fa-wrench"></i> Sửa</button></form>
-                                                    <form class="TC_form_function" action="{{route('admin_tintuc.destroy',$data->ID_tintuc)}}" method="POST">
+                                                    <form class="TC_form_function" action="{{route('admin_tintuc.destroy',$data->ID_tintuc)}}" method="POST" onSubmit="if(!confirm('Bạn có muốn xóa tin tức không')){return false;}">
                                                         @csrf 
                                                         @method('DELETE')
                                                         <button class="TC_btn_function TC_btn_function-delete"><i class="fa-solid fa-trash"></i> Xóa</button></form>

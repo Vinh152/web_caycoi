@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Model_tintuc;
+use Illuminate\Support\Facades\File;
 class Controller_tintuc extends Controller
 {
     /**
@@ -97,6 +98,16 @@ class Controller_tintuc extends Controller
     public function update(Request $request, $id)
     {
         $tintuc=Model_tintuc::find($id);
+        $request->validate([
+            'tentintuc'=>"required",  
+            'loingangon'=>"required|max:50",
+            'mota'=>"required", 
+        ],[
+            'tentintuc.required'=>"Mời bạn nhập thông tin vào",  
+            'loingangon.required'=>"Mời bạn nhập thông tin vào",
+            'mota.required'=>"Mời bạn nhập thông tin vào",
+            'loingangon.max'=>"Bạn nhập quá số ký tự cho phép (max:25 ký tự)",
+        ]);
         if($request->has('anh'))
         {
             $file=$request->anh;
@@ -125,7 +136,13 @@ class Controller_tintuc extends Controller
      */
     public function destroy($id)
     {
-        $tintuc=Model_tintuc::find($id)->delete();
+        $tintuc=Model_tintuc::find($id);
+        $anh='tin_tuc/'.$tintuc->anh;
+        if(File::exists($anh))
+        {
+            File::delete($anh);
+        }
+        $tintuc->delete();
         return redirect()->route("admin_tintuc.index");
     }
 }

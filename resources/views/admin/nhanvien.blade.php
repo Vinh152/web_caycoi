@@ -42,7 +42,7 @@
                                                 <td>{{$data->gioi_tinh}}</td>
                                                 <td>{{$data->chucvu}}</td>
                                                 <td><p class="TC-column"><form class="TC_form_function" method="GET" action="{{route('admin_nhanvien.edit',$data->ID_nhanvien)}}"><button class="TC_btn_function TC_btn_function-fix"><i class="fa-solid fa-wrench"></i> Sửa</button></form>
-                                                    <form class="TC_form_function" action="{{route('admin_nhanvien.destroy',$data->ID_nhanvien)}}" method="POST">
+                                                    <form class="TC_form_function" action="{{route('admin_nhanvien.destroy',$data->ID_nhanvien)}}" method="POST" onSubmit="if(!confirm('Bạn có muốn xóa nhân viên không')){return false;}">
                                                         @csrf 
                                                         @method('DELETE')
                                                         <button class="TC_btn_function TC_btn_function-delete"><i class="fa-solid fa-trash"></i> Xóa</button></form>

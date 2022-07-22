@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use App\Models\Model_danhmuc;
 use App\Models\Model_sanpham;
 use App\Models\Model_chitietsanpham;
+use Illuminate\Support\Facades\File;
+
 class Controller_sanpham extends Controller
 {
     /**
@@ -141,27 +143,17 @@ class Controller_sanpham extends Controller
     {
         $sanpham=Model_sanpham::where('ID_sanpham',$id)->first();
         $chitiet=Model_chitietsanpham::where('ID_sanpham',$id)->first();
-        // $request->validate([
-        //     "tensanpham"=>"required",
-        //     "anh1"=>"required",
-        //     "anh2"=>"required",
-        //     "anh3"=>"required",
-        //     "anh4"=>"required",
-        //     "giatien"=>"required",
-        //     "soluong"=>"required",
-        //     "ID_danhmuc"=>"required",
-        //     "mota"=>"required",
-        // ],[
-        //     "tensanpham.required"=>"Mời bạn điền thông tin",
-        //     "anh1.required"=>"Mời bạn điền thông tin",
-        //     "anh2.required"=>"Mời bạn điền thông tin",
-        //     "anh3.required"=>"Mời bạn điền thông tin",
-        //     "anh4.required"=>"Mời bạn điền thông tin",
-        //     "giatien.required"=>"Mời bạn điền thông tin",
-        //     "soluong.required"=>"Mời bạn điền thông tin",
-        //     "ID_danhmuc.required"=>"Mời bạn điền thông tin",
-        //     "mota.required"=>"Mời bạn điền thông tin",
-        // ]);
+        $request->validate([
+            "tensanpham"=>"required",
+            "giatien"=>"required",
+            "soluong"=>"required",
+            "mota"=>"required",
+        ],[
+            "tensanpham.required"=>"Mời bạn điền thông tin",
+            "giatien.required"=>"Mời bạn điền thông tin",
+            "soluong.required"=>"Mời bạn điền thông tin",
+            "mota.required"=>"Mời bạn điền thông tin",
+        ]);
         if($request->has('anh1') && $request->has('anh2') && $request->has('anh3') && $request->has('anh4'))
         {
             $file=$request->anh1;
@@ -226,7 +218,20 @@ class Controller_sanpham extends Controller
      */
     public function destroy($id)
     {
-        $data_sanpham=Model_sanpham::find($id)->delete();
+        
+        $data_sanpham=Model_sanpham::find($id);
+        // $anh=public_path('img_sanpham/'.$data_sanpham->anh);
+        $anh='img_sanpham/'.$data_sanpham->chitietsanpham->anh;
+        $anh1='img_sanpham/'.$data_sanpham->chitietsanpham->anh1;
+        $anh2='img_sanpham/'.$data_sanpham->chitietsanpham->anh2;
+        $anh3='img_sanpham/'.$data_sanpham->chitietsanpham->anh3;
+        $anh4='img_sanpham/'.$data_sanpham->chitietsanpham->anh4;
+        // if(is_file($anh) && is_file($anh1) && is_file($anh2) && is_file($anh3) && is_file($anh4))
+        if(File::exists($anh, $anh1, $anh2, $anh3, $anh4))
+        {
+            File::delete($anh, $anh1, $anh3, $anh4);
+        }
+        $data_sanpham->delete();
         return redirect()->route('admin_sanpham.index');
     }
 }

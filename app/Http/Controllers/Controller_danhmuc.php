@@ -89,7 +89,15 @@ class Controller_danhmuc extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $danhmuc= Model_danhmuc::where("ID_danhmuc", $id)->first();
+        $request->validate([
+            "tendanhmuc"=>"required",
+            "icon"=>"required",
+        ],[
+            "tendanhmuc.required"=>"Mời bạn điền tên danh mục",
+            "icon.required"=>"Mời bạn điền icon danh mục(lên google search font awesome để lấy icon)",
+        ]);
         $danhmuc->ten_danh_muc=$request->tendanhmuc;
         $danhmuc->icon_danh_muc=$request->icon;
         $danhmuc->save();
