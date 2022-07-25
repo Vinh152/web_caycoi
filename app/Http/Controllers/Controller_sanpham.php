@@ -142,6 +142,7 @@ class Controller_sanpham extends Controller
     public function update(Request $request, $id)
     {
         $sanpham=Model_sanpham::where('ID_sanpham',$id)->first();
+
         $request->validate([
             "tensanpham"=>"required",
             "giatien"=>"required",
@@ -173,13 +174,11 @@ class Controller_sanpham extends Controller
                 $sanpham->ten_san_pham=$request->tensanpham;
                 $sanpham->anh=$file_name_anh1;
                 $sanpham->gia_tien=$request->giatien;
-                $sanpham->save(); 
             }
             else{
                 $sanpham->ten_san_pham=$request->tensanpham;
                 $sanpham->anh=$file_name_anh1;
-                $sanpham->gia_tien=$request->giatien;
-                $sanpham->save(); 
+                $sanpham->gia_tien=$request->giatien; 
             }
         $sanpham->chitietsanpham->anh1=$file_name_anh1;
         $sanpham->chitietsanpham->anh2=$file_name_anh2;
@@ -189,26 +188,24 @@ class Controller_sanpham extends Controller
         $sanpham->chitietsanpham->mo_ta=$request->mota;
         $sanpham->chitietsanpham->save();
         }
+
+
         else{
                 if($request->ID_danhmuc!=$sanpham->ID_danhmuc)
                 {
                     $sanpham->ID_danhmuc=$request->ID_danhmuc;
                     $sanpham->ten_san_pham=$request->tensanpham;
                     $sanpham->gia_tien=$request->giatien;
-                    $sanpham->save(); 
                 }
                 else{
                     $sanpham->ten_san_pham=$request->tensanpham;
                     $sanpham->gia_tien=$request->giatien;
-                    $sanpham->save(); 
                 }
-                
                 $sanpham->chitietsanpham->so_luong=$request->soluong;
                 $sanpham->chitietsanpham->mo_ta=$request->mota;
                 $sanpham->chitietsanpham->save();
         }
-        dd($sanpham->ID_sanpham = $id);
-        // return redirect()->route('admin_sanpham.index');
+        return redirect()->route('admin_sanpham.index');
     }
 
     /**
