@@ -134,7 +134,12 @@
             </div>
             <!-- #/ container -->
             <script src="//cdn.ckeditor.com/4.18.0/full/ckeditor.js"></script>
-            <script>
+            {{-- <script>
                 CKEDITOR.replace('mota');
+            </script> --}}
+            <script src="/ckfinder/ckfinder.js"></script>
+            <script>
+                var editor = CKEDITOR.replace( 'mota' );
+                CKFinder.setupCKEditor( editor );
             </script>
             @endsection

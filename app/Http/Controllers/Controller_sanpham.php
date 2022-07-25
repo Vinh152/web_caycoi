@@ -142,7 +142,6 @@ class Controller_sanpham extends Controller
     public function update(Request $request, $id)
     {
         $sanpham=Model_sanpham::where('ID_sanpham',$id)->first();
-        $chitiet=Model_chitietsanpham::where('ID_sanpham',$id)->first();
         $request->validate([
             "tensanpham"=>"required",
             "giatien"=>"required",
@@ -182,13 +181,13 @@ class Controller_sanpham extends Controller
                 $sanpham->gia_tien=$request->giatien;
                 $sanpham->save(); 
             }
-        $chitiet->anh1=$file_name_anh1;
-        $chitiet->anh2=$file_name_anh2;
-        $chitiet->anh3=$file_name_anh3;
-        $chitiet->anh4=$file_name_anh4;
-        $chitiet->so_luong=$request->soluong;
-        $chitiet->mo_ta=$request->mota;
-        $chitiet->save();
+        $sanpham->chitietsanpham->anh1=$file_name_anh1;
+        $sanpham->chitietsanpham->anh2=$file_name_anh2;
+        $sanpham->chitietsanpham->anh3=$file_name_anh3;
+        $sanpham->chitietsanpham->anh4=$file_name_anh4;
+        $sanpham->chitietsanpham->so_luong=$request->soluong;
+        $sanpham->chitietsanpham->mo_ta=$request->mota;
+        $sanpham->chitietsanpham->save();
         }
         else{
                 if($request->ID_danhmuc!=$sanpham->ID_danhmuc)
@@ -203,11 +202,13 @@ class Controller_sanpham extends Controller
                     $sanpham->gia_tien=$request->giatien;
                     $sanpham->save(); 
                 }
-                $chitiet->so_luong=$request->soluong;
-                $chitiet->mo_ta=$request->mota;
-                $chitiet->save();
+                
+                $sanpham->chitietsanpham->so_luong=$request->soluong;
+                $sanpham->chitietsanpham->mo_ta=$request->mota;
+                $sanpham->chitietsanpham->save();
         }
-        return redirect()->route('admin_sanpham.index');
+        dd($sanpham->ID_sanpham = $id);
+        // return redirect()->route('admin_sanpham.index');
     }
 
     /**
