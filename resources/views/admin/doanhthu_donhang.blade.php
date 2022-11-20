@@ -15,10 +15,17 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Quản lý sản phẩm</h4>
-                                <form action="#" class="TC_card_search">
+                                <h4 class="card-title">Quản lý doanh thu</h4>
+                                <form action="{{route("doanhthu.show")}}" class="TC_card_search" method="GET">
+                                    @csrf
                                     <input type="text" name="thang" placeholder="Nhập tháng">
+                                    <p class="TC_error">@error('thang')
+                                        {{$message}}
+                                    @enderror</p>
                                     <input type="text" name="nam" placeholder="Nhập năm">
+                                    <p class="TC_error">@error('nam')
+                                        {{$message}}
+                                    @enderror</p>
                                     <button><i class="fa-solid fa-magnifying-glass"></i></button>
                                 </form>
                                 <div class="table-responsive">
@@ -32,99 +39,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($doanhthu as $row)
                                             <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
+                                                <td>{{$row->ID_giohang}}</td>
+                                                <td>{{$row->ho}} {{$row->ten}}</td>
+                                                <td>{{$row->created_at}}</td>
+                                                <td>{{number_format($row->tong_don_hang)}}đ</td>
                                             </tr>
-
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                
-                                                <td>5</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                          
+                                            @endforeach
                                         </tbody>
                                         <tfoot>
                                             <tr>
@@ -136,8 +58,8 @@
                                         </tfoot>
                                     </table>
                                 </div>
-                                <p class="TC_price">Tổng doanh thu: 1.000.000.000đ</p>
-                                <p class="TC_btn"><a href="">Lưu doanh thu</a></p>
+                                <p class="TC_price">Tổng doanh thu: {{number_format(session()->get("tongdoanhthu"))}}đ</p>
+                                <p class="TC_btn"><a href="{{route("doanhthu.save")}}">Lưu doanh thu</a></p>
                             </div>
                         </div>
                     </div>

@@ -15,7 +15,8 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Quản lý sản phẩm</h4>
+                                <h4 class="card-title">Quản lý các bảng doanh thu</h4>
+                                <h4 class="card-title"><a href="{{route("doanhthu.xuat")}}">Xuất ra excel</a></h4>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
@@ -25,102 +26,22 @@
                                                 <th>Tháng</th>
                                                 <th>Năm</th>
                                                 <th>Doanh thu</th>
+                                                <th>Ngày tạo</th>
+                                                <th>Ngày sửa</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($doanhthu as $data)
                                             <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
+                                                <td>{{$data->ID_doanhthu}}</td>
+                                                <td>{{$data->ten_doanh_thu}}</td>
+                                                <td>{{$data->thang}}</td>
+                                                <td>{{$data->nam}}</td>
+                                                <td>{{$data->tong_doanh_thu}}</td>
+                                                <td>{{$data->created_at}}</td>
+                                                <td>{{$data->updated_at}}</td>
                                             </tr>
-
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                                <td>Edinburgh</td>
-                                            </tr>
-                                          
+                                            @endforeach
                                         </tbody>
                                         <tfoot>
                                             <tr>
@@ -129,6 +50,8 @@
                                                 <th>Tháng</th>
                                                 <th>Năm</th>
                                                 <th>Doanh thu</th>
+                                                <th>Ngày tạo</th>
+                                                <th>Ngày sửa</th>
                                             </tr>
                                         </tfoot>
                                     </table>

@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller_nhanvien;
 use App\Http\Controllers\Controller_login;
 use App\Http\Controllers\Controller_client;
 use App\Http\Controllers\Controller_giohang;
+use App\Http\Controllers\Controller_doanhthu;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,11 @@ Route::group(['middleware' => ['AuthCheck']],function(){
     Route::get('/admin', [Controller_login::class, 'index'])->name('login');
     Route::get('/admin/create', [Controller_login::class, 'create'])->name('login.create');
     Route::get('/admin/home',[Controller_adminTrangchu::class, 'index'])->name('admin.home');
+    Route::get('/admin_doanhthu', [Controller_doanhthu::class, 'index'])->name('doanhthu.index');
+    Route::get('/show_doanhthu', [Controller_doanhthu::class, 'show'])->name('doanhthu.show');
+    Route::get('/save_doanhthu', [Controller_doanhthu::class, 'save'])->name('doanhthu.save');
+    Route::get('/xem_doanhthu', [Controller_doanhthu::class, 'index_doanhthu'])->name('doanhthu.xem');
+    Route::get('/xuat_doanhthu', [Controller_doanhthu::class, 'export'])->name('doanhthu.xuat');
     Route::resources([
         'admin_danhmuc'=> Controller_danhmuc::class,
         'admin_sanpham'=> Controller_sanpham::class,

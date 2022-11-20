@@ -9,7 +9,8 @@ class Model_chitietsanpham extends Model
 {
     use HasFactory;
     protected $table="chitietsanpham";
-    protected $primaryKey = 'ID_sanpham';
+    protected $primaryKey = null;
+    // public $incrementing = false;
     public function sanpham(){
         return $this->belongsTo(Model_sanpham::class, "ID_sanpham", "ID_sanpham");
     }

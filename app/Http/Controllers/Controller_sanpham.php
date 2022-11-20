@@ -186,6 +186,7 @@ class Controller_sanpham extends Controller
         $sanpham->chitietsanpham->anh4=$file_name_anh4;
         $sanpham->chitietsanpham->so_luong=$request->soluong;
         $sanpham->chitietsanpham->mo_ta=$request->mota;
+        $sanpham->save();
         $sanpham->chitietsanpham->save();
         }
 
@@ -203,6 +204,7 @@ class Controller_sanpham extends Controller
                 }
                 $sanpham->chitietsanpham->so_luong=$request->soluong;
                 $sanpham->chitietsanpham->mo_ta=$request->mota;
+                $sanpham->save();
                 $sanpham->chitietsanpham->save();
         }
         return redirect()->route('admin_sanpham.index');

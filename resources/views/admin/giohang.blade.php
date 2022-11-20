@@ -33,7 +33,7 @@
                                                 <th>Trạng thái</th>
                                                 <th>Ngày mua</th>
                                                 <th>Chi tiết</th>
-                                                <th>Chức năng</th>
+                                                {{-- <th>Chức năng</th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -52,7 +52,7 @@
                                                 <td>{{$giohang->trang_thai}}</td>
                                                 <td>{{$giohang->created_at}}</td>
                                                 <td><a class="TC-font_size TC-red" href="{{route('admin_giohang.show', $giohang->ID_giohang)}}">Chi tiết</a></td>
-                                                <td><p class="TC-column"><a class="TC-font_size TC-green" href=""><i class="fa-solid fa-wrench"></i> Hoàn thành</a></p></td>
+                                                {{-- <td><p class="TC-column"><a class="TC-font_size TC-green" href=""><i class="fa-solid fa-wrench"></i> Hoàn thành</a></p></td> --}}
                                             </tr>
                                             @endforeach
                                         </tbody>

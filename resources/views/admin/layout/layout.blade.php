@@ -309,6 +309,15 @@
                             <li><a href="{{route('admin_giohang.index')}}">Trang chủ giỏ hàng</a></li>
                         </ul>
                     </li>
+                    <li>
+                        <a class="has-arrow" href="./sanpham_them.blade.php" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Doanh thu</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{route('doanhthu.index')}}">Trang chủ doanh thu</a></li>
+                            <li><a href="{{route('doanhthu.xem')}}">Bảng doanh thu đã lưu</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
