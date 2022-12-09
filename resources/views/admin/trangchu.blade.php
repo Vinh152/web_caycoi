@@ -56,8 +56,6 @@
                         </div>
                     </div>
 
-
-
                     <div id="chart"></div>
                 </div>
     
