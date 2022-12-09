@@ -15,8 +15,8 @@ let solong_giam=()=>{
     btn_buy(parseInt(soluong_number.textContent));
 };
 
-function btn_buy(so){
-    let btn_buy=document.querySelector(".main-1-right-buy-btn");
-    btn_buy.setAttribute("href", `./product_information.html?soluongmuahang=${so}`)
-}
+// function btn_buy(so){
+//     let btn_buy=document.querySelector(".main-1-right-buy-btn");
+//     btn_buy.setAttribute("href", `./product_information.html?soluongmuahang=${so}`)
+// }
 

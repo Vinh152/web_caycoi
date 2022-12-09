@@ -7,26 +7,26 @@
         <div class="main-1">
             <div class="main-1-left">
                 <div class="main-1-left-img">
-                    <img src="/img_sanpham/{{$sanphams->anh}}" alt="">
+                    <img src="/img_sanpham/{{$sanphams->anh ?? 'None'}}" alt="">
 
                     <h3 class="main-1-left-img-sale">-29%</h3>
                 </div>
 
                 <div class="main-1-left-choose">
                   <div class="main-1-left-choose-item">
-                      <img class="main-1-left-choose-item-img" src="/img_sanpham/{{$sanphams->chitietsanpham->anh1}}" alt="">
+                      <img class="main-1-left-choose-item-img" src="/img_sanpham/{{$sanphams->chitietsanpham->anh1 ?? 'None'}}" alt="">
                   </div>
 
                   <div class="main-1-left-choose-item">
-                    <img class="main-1-left-choose-item-img" src="/img_sanpham/{{$sanphams->chitietsanpham->anh2}}" alt="">
+                    <img class="main-1-left-choose-item-img" src="/img_sanpham/{{$sanphams->chitietsanpham->anh2 ?? 'None'}}" alt="">
                 </div>
 
                 <div class="main-1-left-choose-item">
-                    <img class="main-1-left-choose-item-img" src="/img_sanpham/{{$sanphams->chitietsanpham->anh3}}" alt="">
+                    <img class="main-1-left-choose-item-img" src="/img_sanpham/{{$sanphams->chitietsanpham->anh3 ?? 'None'}}" alt="">
                 </div>
 
                 <div class="main-1-left-choose-item">
-                    <img class="main-1-left-choose-item-img" src="/img_sanpham/{{$sanphams->chitietsanpham->anh4}}" alt="">
+                    <img class="main-1-left-choose-item-img" src="/img_sanpham/{{$sanphams->chitietsanpham->anh4 ?? 'None'}}" alt="">
                 </div>
                 </div>
 

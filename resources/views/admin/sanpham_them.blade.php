@@ -21,7 +21,7 @@
                                             <label class="col-lg-4 col-form-label" for="val-username">Tên sản phẩm <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" name="tensanpham" placeholder="Điền tên sản phẩm...">
+                                                <input type="text" class="form-control" name="tensanpham" placeholder="Điền tên sản phẩm..." value="{{old("tensanpham")}}">
                                                 <p class="TC_error">@error('tensanpham')
                                                     {{$message}}
                                                 @enderror</p>
@@ -75,6 +75,8 @@
                                                 <p class="TC_error">@error('giatien') {{$message}} @enderror</p>
                                             </div>
                                         </div>
+
+
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="val-password">Số lượng <span class="text-danger">*</span>
                                             </label>
@@ -83,6 +85,9 @@
                                                 <p class="TC_error">@error('soluong') {{$message}} @enderror</p>
                                             </div>
                                         </div>
+
+
+
 
 
                                         <div class="form-group row">
@@ -99,6 +104,8 @@
                                             </div>
                                         </div>
 
+
+                                        
 
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="val-suggestions">Mô tả <span class="text-danger">*</span>

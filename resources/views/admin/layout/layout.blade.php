@@ -18,7 +18,7 @@
     <!-- Custom Stylesheet -->
     <link href="/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="/css/admin_chart.css">
 </head>
 
 <body>

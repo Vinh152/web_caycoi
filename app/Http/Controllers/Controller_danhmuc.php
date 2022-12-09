@@ -28,7 +28,6 @@ class Controller_danhmuc extends Controller
     public function create()
     {
         if (View::exists('admin.danhmuc_them')) {
-            echo "có view này";
             return view('admin.danhmuc_them');
         }
         else{

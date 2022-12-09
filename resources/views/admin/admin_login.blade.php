@@ -27,7 +27,7 @@
             <form action="{{route('login.login')}}" class="R_form" method="POST">
               @csrf
                 <div class="R_item-column">
-                    <input type="text" class="R_input" name="email" placeholder="Nhập email...">
+                    <input type="email" class="R_input" name="email" placeholder="Nhập email...">
                     <p class="R_error">@error('email') {{$message}}@enderror</p>
                 </div>
                 <div class="R_item-column">
