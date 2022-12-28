@@ -9,5 +9,5 @@ class Model_tintuc extends Model
 {
     use HasFactory;
     protected $table="tintuc";
-    protected $primaryKey="ID_tintuc";
+    protected $primaryKey="ID_new";
 }

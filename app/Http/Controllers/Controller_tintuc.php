@@ -57,10 +57,10 @@ class Controller_tintuc extends Controller
         }
 
         $tintuc=new Model_tintuc();
-        $tintuc->ten_tin_tuc=$request->tentintuc;
-        $tintuc->loi_ngan_gon=$request->loingangon;
-        $tintuc->anh=$file_name;
-        $tintuc->mo_ta=$request->mota;
+        $tintuc->new_name=$request->tentintuc;
+        $tintuc->tittle=$request->loingangon;
+        $tintuc->img=$file_name;
+        $tintuc->text=$request->mota;
         $tintuc->save();
         return redirect()->route("admin_tintuc.index");
     }
@@ -113,16 +113,16 @@ class Controller_tintuc extends Controller
             $file=$request->anh;
             $file_name=$file->getClientOriginalName();
             $file->move(public_path('tin_tuc'),$file_name);
-            $tintuc->ten_tin_tuc=$request->tentintuc;
-            $tintuc->loi_ngan_gon=$request->loingangon;
-            $tintuc->anh=$file_name;
-            $tintuc->mo_ta=$request->mota;
+            $tintuc->new_name=$request->tentintuc;
+            $tintuc->tittle=$request->loingangon;
+            $tintuc->img=$file_name;
+            $tintuc->text=$request->mota;
             $tintuc->save();
         }
         else{
-            $tintuc->ten_tin_tuc=$request->tentintuc;
-            $tintuc->loi_ngan_gon=$request->loingangon;
-            $tintuc->mo_ta=$request->mota;
+            $tintuc->new_name=$request->tentintuc;
+            $tintuc->tittle=$request->loingangon;
+            $tintuc->text=$request->mota;
             $tintuc->save();
         }
         return redirect()->route("admin_tintuc.index");

@@ -15,10 +15,10 @@ class Controller_client extends Controller
     public function index(){
         $sanphams=Model_sanpham::all();
         $tintucs=Model_tintuc::all();
-        $bonsais=Model_danhmuc::where("ten_danh_muc", 'Bonsai')->first();
-        $phongthuys=Model_danhmuc::where("ten_danh_muc", 'Cây cảnh phong thủy')->first();
-        $sendas=Model_danhmuc::where("ten_danh_muc", 'Cây cảnh sen đá')->first();
-        $vanphongs=Model_danhmuc::where("ten_danh_muc", 'Cây cảnh văn phòng')->first();
+        $bonsais=Model_danhmuc::where("category_name", 'Bonsai')->first();
+        $phongthuys=Model_danhmuc::where("category_name", 'Cây cảnh phong thủy')->first();
+        $sendas=Model_danhmuc::where("category_name", 'Cây cảnh sen đá')->first();
+        $vanphongs=Model_danhmuc::where("category_name", 'Cây cảnh văn phòng')->first();
         $danhmucs=Model_danhmuc::all();
         // session()->put($d)
         return view("client.index", compact("sanphams","tintucs", "bonsais", "phongthuys", "sendas", "danhmucs","vanphongs"));
@@ -26,7 +26,7 @@ class Controller_client extends Controller
 
     public function sanpham()
     {   
-        $sanphams=Model_sanpham::orderBy('gia_tien', 'asc')->paginate(20);
+        $sanphams=Model_sanpham::orderBy('money', 'asc')->paginate(20);
         $danhmucs=Model_danhmuc::all();
         $sanpham_5=Model_sanpham::offset(0)->limit(5)->get();
         return view("client.product", compact("sanphams", "danhmucs", "sanpham_5"));
@@ -37,7 +37,7 @@ class Controller_client extends Controller
         
         $danhmucs=Model_danhmuc::all();
         $sanpham_5=Model_sanpham::offset(0)->limit(5)->get();
-        $sanphams=Model_sanpham::where("ID_danhmuc","=",$danhmuc)->orderBy('gia_tien', 'asc')->paginate(5);
+        $sanphams=Model_sanpham::where("ID_category","=",$danhmuc)->orderBy('money', 'asc')->paginate(5);
         return view("client.product", compact("sanphams", "danhmucs", "sanpham_5"));
     }
 
@@ -54,7 +54,7 @@ class Controller_client extends Controller
         $min= $request->Price_min;
         $danhmucs=Model_danhmuc::all();
         $sanpham_5=Model_sanpham::offset(0)->limit(5)->get();
-        $sanphams=Model_sanpham::where('gia_tien', '>', $min)->where('gia_tien', '<', $max)->paginate(5);
+        $sanphams=Model_sanpham::where('money', '>', $min)->where('money', '<', $max)->paginate(5);
         return view("client.product", compact("sanphams", "danhmucs", "sanpham_5")); 
     }
 
@@ -62,7 +62,7 @@ class Controller_client extends Controller
         $keywork=$request->sanpham_search;
         $danhmucs=Model_danhmuc::all();
         $sanpham_5=Model_sanpham::offset(0)->limit(5)->get();
-        $sanphams=Model_sanpham::where("ten_san_pham", 'like', '%'.$keywork .'%')->paginate(5);
+        $sanphams=Model_sanpham::where("product_name", 'like', '%'.$keywork .'%')->paginate(5);
         return view("client.product", compact("sanphams", "danhmucs", "sanpham_5")); 
     }
 
@@ -90,10 +90,10 @@ class Controller_client extends Controller
         // Cart::add('293ad', 'Product 1', 1, 9.99, 550);
         $data['id']=$id;
         $data['qty']=1;
-        $data['name']=$sanpham->ten_san_pham;
-        $data['price']=$sanpham->gia_tien;
+        $data['name']=$sanpham->product_name;
+        $data['price']=$sanpham->money;
         $data['weight']=12;
-        $data['options']['img']=$sanpham->anh;
+        $data['options']['img']=$sanpham->img;
         Cart::add($data);
         $danhmucs=Model_danhmuc::all();
         return view("client.cart", compact("danhmucs"));
@@ -149,29 +149,29 @@ class Controller_client extends Controller
         // $tongdonhang=number_format(Cart::subtotal(),'.','');
         $so=(int)Cart::subtotal();
         $giohang= new Model_giohang();
-        $giohang->ID_giohang=$ID;
-        $giohang->ho=$request->ho;
-        $giohang->ten=$request->ten;
-        $giohang->quoc_gia=$request->quocgia;
-        $giohang->thanh_pho=$request->thanhpho;
-        $giohang->dia_diem=$request->diachi;
-        $giohang->sdt=$request->sdt;
+        $giohang->ID_cart=$ID;
+        $giohang->curname=$request->ho;
+        $giohang->name=$request->ten;
+        $giohang->country=$request->quocgia;
+        $giohang->city=$request->thanhpho;
+        $giohang->location=$request->diachi;
+        $giohang->phonenumber=$request->sdt;
         $giohang->email=$request->email;
-        $giohang->ghi_chu=$request->ghichu;
+        $giohang->note=$request->ghichu;
         $tongdonhang=$so.'000';
-        $giohang->tong_don_hang=$tongdonhang;
-        $giohang->trang_thai="Thanh toán tiền mặt";
+        $giohang->total=$tongdonhang;
+        $giohang->status="Thanh toán tiền mặt";
         $giohang->save();
         $content=Cart::content();
         foreach($content as $row)
         {
             $chitietgiohang=new Model_chitietgiohang();
-            $chitietgiohang->ID_giohang=$ID;
-            $chitietgiohang->ID_sanpham=$row->id;
-            $chitietgiohang->ten_san_pham=$row->name;
-            $chitietgiohang->gia_san_pham=$row->price;
-            $chitietgiohang->so_luong=$row->qty;
-            $chitietgiohang->tong_cong=$row->price*$row->qty;
+            $chitietgiohang->ID_cart=$ID;
+            $chitietgiohang->ID_product=$row->id;
+            $chitietgiohang->product_name=$row->name;
+            $chitietgiohang->money=$row->price;
+            $chitietgiohang->count=$row->qty;
+            $chitietgiohang->total=$row->price*$row->qty;
             $chitietgiohang->save();
         }
         Cart::destroy();

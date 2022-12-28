@@ -29,11 +29,11 @@
                                         <tbody>
                                         @foreach ($datas as $data )
                                             <tr>
-                                                <td>{{$data->ID_danhmuc}}</td>
-                                                <td>{{$data->ten_danh_muc}}</td>
-                                                <td>{{$data->icon_danh_muc}}</td>
-                                                <td><p class="TC-column"><form class="TC_form_function" method="GET" action="{{route('admin_danhmuc.edit',$data->ID_danhmuc)}}"><button class="TC_btn_function TC_btn_function-fix"><i class="fa-solid fa-wrench"></i> Sửa</button></form>
-                                                    <form class="TC_form_function" action="{{route('admin_danhmuc.destroy', $data->ID_danhmuc)}}" method="POST" onSubmit="if(!confirm('Bạn có muốn xóa danh mục không')){return false;}">
+                                                <td>{{$data->ID_category}}</td>
+                                                <td>{{$data->category_name}}</td>
+                                                <td>{{$data->category_icon}}</td>
+                                                <td><p class="TC-column"><form class="TC_form_function" method="GET" action="{{route('admin_danhmuc.edit',$data->ID_category)}}"><button class="TC_btn_function TC_btn_function-fix"><i class="fa-solid fa-wrench"></i> Sửa</button></form>
+                                                    <form class="TC_form_function" action="{{route('admin_danhmuc.destroy', $data->ID_category)}}" method="POST" onSubmit="if(!confirm('Bạn có muốn xóa danh mục không')){return false;}">
                                                         @csrf 
                                                         @method('DELETE')
                                                         <button class="TC_btn_function TC_btn_function-delete"><i class="fa-solid fa-trash"></i> Xóa</button></form>

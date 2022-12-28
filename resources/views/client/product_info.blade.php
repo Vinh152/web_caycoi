@@ -7,26 +7,26 @@
         <div class="main-1">
             <div class="main-1-left">
                 <div class="main-1-left-img">
-                    <img src="/img_sanpham/{{$sanphams->anh ?? 'None'}}" alt="">
+                    <img src="/img_sanpham/{{$sanphams->img ?? 'None'}}" alt="">
 
                     <h3 class="main-1-left-img-sale">-29%</h3>
                 </div>
 
                 <div class="main-1-left-choose">
                   <div class="main-1-left-choose-item">
-                      <img class="main-1-left-choose-item-img" src="/img_sanpham/{{$sanphams->chitietsanpham->anh1 ?? 'None'}}" alt="">
+                      <img class="main-1-left-choose-item-img" src="/img_sanpham/{{$sanphams->chitietsanpham->img1 ?? 'None'}}" alt="">
                   </div>
 
                   <div class="main-1-left-choose-item">
-                    <img class="main-1-left-choose-item-img" src="/img_sanpham/{{$sanphams->chitietsanpham->anh2 ?? 'None'}}" alt="">
+                    <img class="main-1-left-choose-item-img" src="/img_sanpham/{{$sanphams->chitietsanpham->img2 ?? 'None'}}" alt="">
                 </div>
 
                 <div class="main-1-left-choose-item">
-                    <img class="main-1-left-choose-item-img" src="/img_sanpham/{{$sanphams->chitietsanpham->anh3 ?? 'None'}}" alt="">
+                    <img class="main-1-left-choose-item-img" src="/img_sanpham/{{$sanphams->chitietsanpham->img3 ?? 'None'}}" alt="">
                 </div>
 
                 <div class="main-1-left-choose-item">
-                    <img class="main-1-left-choose-item-img" src="/img_sanpham/{{$sanphams->chitietsanpham->anh4 ?? 'None'}}" alt="">
+                    <img class="main-1-left-choose-item-img" src="/img_sanpham/{{$sanphams->chitietsanpham->img4 ?? 'None'}}" alt="">
                 </div>
                 </div>
 
@@ -36,13 +36,13 @@
 
             <div class="main-1-right">
                 <p class="main-1-right-tittle"><a href="">Trang chủ</a>  / <a href="">BEST SELLER</a></p>
-                <h1 class="main-1-right-name">{{$sanphams->ten_san_pham}}</h1>
+                <h1 class="main-1-right-name">{{$sanphams->product_name}}</h1>
                 <div class="main-1-right-price">
-                    <p class="main-1-right-price-text"> {{number_format($sanphams->gia_tien)}}đ</p>
+                    <p class="main-1-right-price-text"> {{number_format($sanphams->money)}}đ</p>
                 </div>
 
                 {{-- <div class="main-1-right-introduce">
-                    <p>{{$sanphams->ten_san_pham}}</p>
+                    <p>{{$sanphams->product_name}}</p>
                 </div> --}}
 
                 <ul class="main-1-right-ingredient">
@@ -59,7 +59,7 @@
                         <button class="main-1-right-number-plus" onclick="solong_tang()"><i class="fas fa-plus"></i></button>
                     </div>
                     <div class="main-1-right-buy">
-                        <a href="{{route("client.cart_buy", $sanphams->ID_sanpham)}}" class="main-1-right-buy-btn">Thêm vào giỏ</a>
+                        <a href="{{route("client.cart_buy", $sanphams->ID_product)}}" class="main-1-right-buy-btn">Thêm vào giỏ</a>
                     </div>
                 </div>
 
@@ -110,7 +110,7 @@
                 <!-- làm phần mục đánh giá để điền  -->
                 <div class="main-2-frame-danhgia-frame">
                     <h3 class="main-2-frame-danhgia-tittle">
-                        Hãy là người đầu tiên nhận xét “cây {{$sanphams->ten_san_pham}}” 
+                        Hãy là người đầu tiên nhận xét “cây {{$sanphams->product_name}}” 
                     </h3>
                     <div class="main-2-frame-danhgia-star">
                         <h4 class="main-2-frame-danhgia-star-tittle">
@@ -201,12 +201,12 @@
     @foreach ( $sanpham_5 as $sanpham5)
         <div class="main-3-item">
             <div class="main-3-item-image">
-                <a href="{{route("client.sanpham_info", $sanpham5->ID_sanpham)}}"><img class="main-3-item-image-1" src="/img_sanpham/{{$sanpham5->anh}}" alt=""></a>
+                <a href="{{route("client.sanpham_info", $sanpham5->ID_product)}}"><img class="main-3-item-image-1" src="/img_sanpham/{{$sanpham5->img}}" alt=""></a>
                
             </div>
             <div class="main-3-item-text">
-                <h3 class="main-3-item-tittle">{{$sanpham5->ten_san_pham}}</h3>
-                <p class="main-3-item-price">{{number_format($sanpham5->gia_tien)}}đ</p>
+                <h3 class="main-3-item-tittle">{{$sanpham5->product_name}}</h3>
+                <p class="main-3-item-price">{{number_format($sanpham5->money)}}đ</p>
                 <p class="main-3-item-btn"><a href="">Thêm vào giỏ</a></p>
             </div>
         </div>

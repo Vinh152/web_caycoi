@@ -33,11 +33,11 @@
                                         <tbody>
                                             @foreach ($doanhthu as $data)
                                             <tr>
-                                                <td>{{$data->ID_doanhthu}}</td>
-                                                <td>{{$data->ten_doanh_thu}}</td>
-                                                <td>{{$data->thang}}</td>
-                                                <td>{{$data->nam}}</td>
-                                                <td>{{$data->tong_doanh_thu}}</td>
+                                                <td>{{$data->ID_revenue}}</td>
+                                                <td>{{$data->revenue_name}}</td>
+                                                <td>{{$data->month}}</td>
+                                                <td>{{$data->year}}</td>
+                                                <td>{{$data->total}}</td>
                                                 <td>{{$data->created_at}}</td>
                                                 <td>{{$data->updated_at}}</td>
                                             </tr>

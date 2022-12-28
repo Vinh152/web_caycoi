@@ -107,13 +107,13 @@
                     <li class="menu_item menu_item-line"><label for="menu_toggle_connect" class="menu_item_label"><a href="{{route("client.sanpham")}}">Sản phẩm</a> <i class="fa-solid fa-arrow-down mobile"></i></label>
                         <ul class="menu_drop menu_touch">
                           @foreach ($danhmucs as $danhmuc1 )
-                            <li class="menu_drop_item"><a href="{{route('client.filter_sanpham', ['danhmuc' => $danhmuc1->ID_danhmuc])}}"><img class="menu_drop_con" src="/icon/bonsai-1-24x24.png" alt="">{{$danhmuc1->ten_danh_muc}}</a></li>
+                            <li class="menu_drop_item"><a href="{{route('client.filter_sanpham', ['danhmuc' => $danhmuc1->ID_category])}}"><img class="menu_drop_con" src="/icon/bonsai-1-24x24.png" alt="">{{$danhmuc1->category_name}}</a></li>
                             @endforeach
                         </ul>
                         <input type="checkbox" id="menu_toggle_connect" class="mobile">
                         <ul class="menu_drop menu_toggle">
                           @foreach ($danhmucs as $danhmuc1 )
-                            <li class="menu_drop_item"><a href="{{route('client.filter_sanpham', ['danhmuc' => $danhmuc1->ID_danhmuc])}}"><img class="menu_drop_con" src="/icon/bonsai-1-24x24.png" alt="">{{$danhmuc1->ten_danh_muc}}</a></li>
+                            <li class="menu_drop_item"><a href="{{route('client.filter_sanpham', ['danhmuc' => $danhmuc1->ID_category])}}"><img class="menu_drop_con" src="/icon/bonsai-1-24x24.png" alt="">{{$danhmuc1->category_name}}</a></li>
                             @endforeach
                         </ul>
                     </li>

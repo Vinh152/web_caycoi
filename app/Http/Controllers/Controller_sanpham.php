@@ -87,20 +87,20 @@ class Controller_sanpham extends Controller
         }
         $sanpham=new Model_sanpham();
         $ID_sanpham=rand();
-        $sanpham->ID_sanpham=$ID_sanpham;
-        $sanpham->ID_danhmuc=$request->ID_danhmuc;
-        $sanpham->ten_san_pham=$request->tensanpham;
-        $sanpham->anh=$file_name_anh1;
-        $sanpham->gia_tien=$request->giatien;
+        $sanpham->ID_product=$ID_sanpham;
+        $sanpham->ID_category=$request->ID_danhmuc;
+        $sanpham->product_name=$request->tensanpham;
+        $sanpham->img=$file_name_anh1;
+        $sanpham->money=$request->giatien;
         $sanpham->save();
         $chitiet=new Model_chitietsanpham();
-        $chitiet->ID_sanpham=$ID_sanpham;
-        $chitiet->anh1=$file_name_anh1;
-        $chitiet->anh2=$file_name_anh2;
-        $chitiet->anh3=$file_name_anh3;
-        $chitiet->anh4=$file_name_anh4;
-        $chitiet->so_luong=$request->soluong;
-        $chitiet->mo_ta=$request->mota;
+        $chitiet->ID_product=$ID_sanpham;
+        $chitiet->img1=$file_name_anh1;
+        $chitiet->img2=$file_name_anh2;
+        $chitiet->img3=$file_name_anh3;
+        $chitiet->img4=$file_name_anh4;
+        $chitiet->count=$request->soluong;
+        $chitiet->text=$request->mota;
         $chitiet->save();
         return redirect()->route('admin_sanpham.index');
     }
@@ -126,7 +126,7 @@ class Controller_sanpham extends Controller
      */
     public function edit($id)
     {
-        $data_sanpham=Model_sanpham::where('ID_sanpham',$id)->first();
+        $data_sanpham=Model_sanpham::where('ID_product',$id)->first();
         $data_chitiet=$data_sanpham->chitietsanpham;
         $datas_danhmuc=Model_danhmuc::all();
         return view('admin.sanpham_sua', compact('data_sanpham', 'data_chitiet', 'datas_danhmuc'));
@@ -141,8 +141,7 @@ class Controller_sanpham extends Controller
      */
     public function update(Request $request, $id)
     {
-        $sanpham=Model_sanpham::where('ID_sanpham',$id)->first();
-
+        $sanpham=Model_sanpham::find($id);
         $request->validate([
             "tensanpham"=>"required",
             "giatien"=>"required",
@@ -170,40 +169,40 @@ class Controller_sanpham extends Controller
             $file->move(public_path('img_sanpham'), $file_name_anh4);
             if($request->ID_danhmuc!=$sanpham->ID_danhmuc)
             {
-                $sanpham->ID_danhmuc=$request->ID_danhmuc;
-                $sanpham->ten_san_pham=$request->tensanpham;
-                $sanpham->anh=$file_name_anh1;
-                $sanpham->gia_tien=$request->giatien;
+                $sanpham->ID_category=$request->ID_danhmuc;
+                $sanpham->product_name=$request->tensanpham;
+                $sanpham->img=$file_name_anh1;
+                $sanpham->money=$request->giatien;
             }
             else{
-                $sanpham->ten_san_pham=$request->tensanpham;
-                $sanpham->anh=$file_name_anh1;
-                $sanpham->gia_tien=$request->giatien; 
+                $sanpham->product_name=$request->tensanpham;
+                $sanpham->img=$file_name_anh1;
+                $sanpham->money=$request->giatien; 
             }
-        $sanpham->chitietsanpham->anh1=$file_name_anh1;
-        $sanpham->chitietsanpham->anh2=$file_name_anh2;
-        $sanpham->chitietsanpham->anh3=$file_name_anh3;
-        $sanpham->chitietsanpham->anh4=$file_name_anh4;
-        $sanpham->chitietsanpham->so_luong=$request->soluong;
-        $sanpham->chitietsanpham->mo_ta=$request->mota;
+        $sanpham->chitietsanpham->img1=$file_name_anh1;
+        $sanpham->chitietsanpham->img2=$file_name_anh2;
+        $sanpham->chitietsanpham->img3=$file_name_anh3;
+        $sanpham->chitietsanpham->img4=$file_name_anh4;
+        $sanpham->chitietsanpham->count=$request->soluong;
+        $sanpham->chitietsanpham->text=$request->mota;
         $sanpham->save();
         $sanpham->chitietsanpham->save();
         }
 
 
         else{
-                if($request->ID_danhmuc!=$sanpham->ID_danhmuc)
+                if($request->ID_danhmuc!=$sanpham->ID_category)
                 {
-                    $sanpham->ID_danhmuc=$request->ID_danhmuc;
-                    $sanpham->ten_san_pham=$request->tensanpham;
-                    $sanpham->gia_tien=$request->giatien;
+                    $sanpham->ID_category=$request->ID_danhmuc;
+                    $sanpham->product_name=$request->tensanpham;
+                    $sanpham->money=$request->giatien;
                 }
                 else{
-                    $sanpham->ten_san_pham=$request->tensanpham;
-                    $sanpham->gia_tien=$request->giatien;
+                    $sanpham->product_name=$request->tensanpham;
+                    $sanpham->money=$request->giatien;
                 }
-                $sanpham->chitietsanpham->so_luong=$request->soluong;
-                $sanpham->chitietsanpham->mo_ta=$request->mota;
+                $sanpham->chitietsanpham->count=$request->soluong;
+                $sanpham->chitietsanpham->text=$request->mota;
                 $sanpham->save();
                 $sanpham->chitietsanpham->save();
         }
@@ -221,11 +220,11 @@ class Controller_sanpham extends Controller
         
         $data_sanpham=Model_sanpham::find($id);
         // $anh=public_path('img_sanpham/'.$data_sanpham->anh);
-        $anh='img_sanpham/'.$data_sanpham->chitietsanpham->anh;
-        $anh1='img_sanpham/'.$data_sanpham->chitietsanpham->anh1;
-        $anh2='img_sanpham/'.$data_sanpham->chitietsanpham->anh2;
-        $anh3='img_sanpham/'.$data_sanpham->chitietsanpham->anh3;
-        $anh4='img_sanpham/'.$data_sanpham->chitietsanpham->anh4;
+        $anh='img_sanpham/'.$data_sanpham->img;
+        $anh1='img_sanpham/'.$data_sanpham->chitietsanpham->img1;
+        $anh2='img_sanpham/'.$data_sanpham->chitietsanpham->img2;
+        $anh3='img_sanpham/'.$data_sanpham->chitietsanpham->img3;
+        $anh4='img_sanpham/'.$data_sanpham->chitietsanpham->img4;
         // if(is_file($anh) && is_file($anh1) && is_file($anh2) && is_file($anh3) && is_file($anh4))
         if(File::exists($anh, $anh1, $anh2, $anh3, $anh4))
         {

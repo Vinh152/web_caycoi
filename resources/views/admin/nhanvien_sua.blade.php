@@ -16,14 +16,14 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-validation">
-                                    <form class="form-valide" action="{{route('admin_nhanvien.update', $data->ID_nhanvien)}}" method="POST" enctype="multipart/form-data">
+                                    <form class="form-valide" action="{{route('admin_nhanvien.update', $data->ID_staff)}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method("PUT")
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="val-username">Họ tên nhân viên <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" name="hoten" placeholder="Điền họ tên..." value="{{$data->ho_ten}}">
+                                                <input type="text" class="form-control" name="hoten" placeholder="Điền họ tên..." value="{{$data->name}}">
                                                 <p class="TC_error">@error('hoten') {{$message}} @enderror</p>
                                             </div>
                                         </div>
@@ -31,7 +31,7 @@
                                             <label class="col-lg-4 col-form-label" for="val-email">Ngày sinh <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="date" class="form-control" name="ngaysinh" value="{{$data->ngay_sinh}}">
+                                                <input type="date" class="form-control" name="ngaysinh" value="{{$data->birth}}">
                                                 <p class="TC_error">@error('ngaysinh') {{$message}} @enderror</p>
                                             </div>
                                         </div>

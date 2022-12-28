@@ -39,19 +39,19 @@
                                         <tbody>
                                             @foreach ($giohangs as $giohang )
                                             <tr>
-                                                <td>{{$giohang->ID_giohang}}</td>
-                                                <td>{{$giohang->ho}}</td>
-                                                <td>{{$giohang->ten}}</td>
-                                                <td>{{$giohang->quoc_gia}}</td>
-                                                <td>{{$giohang->thanh_pho}}</td>
-                                                <td>{{$giohang->dia_diem}}</td>
-                                                <td>{{$giohang->sdt}}</td>
+                                                <td>{{$giohang->ID_cart}}</td>
+                                                <td>{{$giohang->curname}}</td>
+                                                <td>{{$giohang->name}}</td>
+                                                <td>{{$giohang->country}}</td>
+                                                <td>{{$giohang->city}}</td>
+                                                <td>{{$giohang->location}}</td>
+                                                <td>{{$giohang->phonenumber}}</td>
                                                 <td>{{$giohang->email}}</td>
-                                                <td>{{$giohang->ghi_chu}}</td>
-                                                <td>{{number_format($giohang->tong_don_hang)}}đ</td>
-                                                <td>{{$giohang->trang_thai}}</td>
+                                                <td>{{$giohang->note}}</td>
+                                                <td>{{number_format($giohang->total)}}đ</td>
+                                                <td>{{$giohang->status}}</td>
                                                 <td>{{$giohang->created_at}}</td>
-                                                <td><a class="TC-font_size TC-red" href="{{route('admin_giohang.show', $giohang->ID_giohang)}}">Chi tiết</a></td>
+                                                <td><a class="TC-font_size TC-red" href="{{route('admin_giohang.show', $giohang->ID_cart)}}">Chi tiết</a></td>
                                                 {{-- <td><p class="TC-column"><a class="TC-font_size TC-green" href=""><i class="fa-solid fa-wrench"></i> Hoàn thành</a></p></td> --}}
                                             </tr>
                                             @endforeach

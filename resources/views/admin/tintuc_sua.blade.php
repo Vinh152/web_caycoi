@@ -16,14 +16,14 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-validation">
-                                    <form class="form-valide" action="{{route('admin_tintuc.update', $data->ID_tintuc)}}" method="POST" enctype="multipart/form-data">
+                                    <form class="form-valide" action="{{route('admin_tintuc.update', $data->ID_new)}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="val-username">Tên tin tức <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control"  name="tentintuc" placeholder="Điền tên tin tức" value="{{$data->ten_tin_tuc}}">
+                                                <input type="text" class="form-control"  name="tentintuc" placeholder="Điền tên tin tức" value="{{$data->new_name}}">
                                                 <p class="TC_error">@error('tentintuc') {{$message}} @enderror</p>
                                             </div>
                                         </div>
@@ -31,7 +31,7 @@
                                             <label class="col-lg-4 col-form-label" for="val-email">Lời ngắn gọn <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control"  name="loingangon" placeholder="VIết lời ngắn gọn.." value="{{$data->loi_ngan_gon}}">
+                                                <input type="text" class="form-control"  name="loingangon" placeholder="VIết lời ngắn gọn.." value="{{$data->tittle}}">
                                                 <p class="TC_error">@error('loingangon') {{$message}} @enderror</p>
                                             </div>
                                         </div>
@@ -48,7 +48,7 @@
                                             <label class="col-lg-4 col-form-label" for="val-suggestions">Mô tả <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <textarea class="form-control"  name="mota" rows="5" placeholder="Thông tin chi tiết bài viết?">{{$data->mo_ta}}</textarea>
+                                                <textarea class="form-control"  name="mota" rows="5" placeholder="Thông tin chi tiết bài viết?">{{$data->text}}</textarea>
                                                 <p class="TC_error">@error('mota') {{$message}} @enderror</p>
                                             </div>
                                         </div>

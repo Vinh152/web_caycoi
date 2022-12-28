@@ -32,14 +32,14 @@
                                         <tbody>
                                         @foreach ($datas as $data)
                                             <tr>
-                                                <td onclick="xoa()">{{$data->ID_sanpham}}</td>
-                                                <td>{{$data->ID_danhmuc}}</td>
-                                                <td>{{$data->ten_san_pham}}</td>
-                                                <td><img class="TC_img_card TC_img_card-30" src="/img_sanpham/{{$data->anh}}" alt=""></td>
-                                                <td>{{number_format($data->gia_tien)}}</td>
-                                                <td><a class="TC-font_size TC-red" href="{{route('admin_sanpham.show', $data->ID_sanpham)}}">Xem chi tiết sản phẩm</a></td>
-                                                <td><p class="TC-column"><form class="TC_form_function" method="GET" action="{{route('admin_sanpham.edit',$data->ID_sanpham)}}"><button class="TC_btn_function TC_btn_function-fix"><i class="fa-solid fa-wrench"></i> Sửa</button></form>
-                                                    <form class="TC_form_function TC_form_delete" action="{{route('admin_sanpham.destroy', $data->ID_sanpham)}}" method="POST" onSubmit="if(!confirm('Bạn có muốn xóa sản phẩm không')){return false;}">
+                                                <td onclick="xoa()">{{$data->ID_product}}</td>
+                                                <td>{{$data->ID_category}}</td>
+                                                <td>{{$data->product_name}}</td>
+                                                <td><img class="TC_img_card TC_img_card-30" src="/img_sanpham/{{$data->img}}" alt=""></td>
+                                                <td>{{number_format($data->money)}}</td>
+                                                <td><a class="TC-font_size TC-red" href="{{route('admin_sanpham.show', $data->ID_product)}}">Xem chi tiết sản phẩm</a></td>
+                                                <td><p class="TC-column"><form class="TC_form_function" method="GET" action="{{route('admin_sanpham.edit',$data->ID_product)}}"><button class="TC_btn_function TC_btn_function-fix"><i class="fa-solid fa-wrench"></i> Sửa</button></form>
+                                                    <form class="TC_form_function TC_form_delete" action="{{route('admin_sanpham.destroy', $data->ID_product)}}" method="POST" onSubmit="if(!confirm('Bạn có muốn xóa sản phẩm không')){return false;}">
                                                         @csrf 
                                                         @method('DELETE')
                                                         <button type="submit" class="TC_btn_function TC_btn_function-delete"><i class="fa-solid fa-trash"></i> Xóa</button></form>

@@ -24,7 +24,7 @@
                 <ul class="mainFrame_menu">
                     @foreach ($danhmucs as $danhmuc)
                     <li class="mainFrame_menu_item">
-                        <a href="{{route('client.filter_sanpham', ['danhmuc' => $danhmuc->ID_danhmuc])}}"><img src="/icon/bonsai-1-24x24.png" alt="">{{$danhmuc->ten_danh_muc}}</a></li>
+                        <a href="{{route('client.filter_sanpham', ['danhmuc' => $danhmuc->ID_category])}}"><img src="/icon/bonsai-1-24x24.png" alt="">{{$danhmuc->category_name}}</a></li>
                     @endforeach
                 </ul>
                </div>
@@ -50,10 +50,10 @@
                 <div class="mainLeft_Frame_product">
                 @foreach ($sanpham_5 as $sanpham5)
                     <div class="mainLeft_product">
-                        <a href="{{route('client.sanpham_info', $sanpham5->ID_sanpham)}}" class="mainLeft_product_img"><img src="/img_sanpham/{{$sanpham5->anh}}" alt=""></a>
+                        <a href="{{route('client.sanpham_info', $sanpham5->ID_product)}}" class="mainLeft_product_img"><img src="/img_sanpham/{{$sanpham5->img}}" alt=""></a>
                         <div class="mainLeft_product_text">
-                            <p class="mainLeft_product_text_tittle"><a href="{{route('client.sanpham_info', $sanpham5->ID_sanpham)}}">{{$sanpham5->ten_san_pham}}</a></p>
-                            <p class="mainLeft_product_text_price">{{number_format($sanpham5->gia_tien)}}đ</p>
+                            <p class="mainLeft_product_text_tittle"><a href="{{route('client.sanpham_info', $sanpham5->ID_product)}}">{{$sanpham5->product_name}}</a></p>
+                            <p class="mainLeft_product_text_price">{{number_format($sanpham5->money)}}đ</p>
                         </div>
                     </div>
                     @endforeach
@@ -132,14 +132,14 @@
                 @foreach ($sanphams as $sanpham)
                     <div class="productR">
                         <div class="productR_img_frame">
-                            <a href="{{route('client.sanpham_info', $sanpham->ID_sanpham)}}"><img class="productR_img" src="/img_sanpham/{{$sanpham->anh}}" alt=""></a>
-                            <a href="{{route('client.sanpham_info', $sanpham->ID_sanpham)}}"><img class="productR_img_hover" src="/img_sanpham/{{$sanpham->chitietsanpham->anh2}}" alt=""></a>
+                            <a href="{{route('client.sanpham_info', $sanpham->ID_product)}}"><img class="productR_img" src="/img_sanpham/{{$sanpham->img}}" alt=""></a>
+                            <a href="{{route('client.sanpham_info', $sanpham->ID_product)}}"><img class="productR_img_hover" src="/img_sanpham/{{$sanpham->chitietsanpham->img2}}" alt=""></a>
                         </div>
                         <div class="prouductR_text">
                             <p class="prouductR_text_type"><a href="">Bonsai</a></p>
-                            <p class="prouductR_text_name"><a href="{{route('client.sanpham_info', $sanpham->ID_sanpham)}}">{{$sanpham->ten_san_pham}}</a></p>
-                            <p class="productR_text_price">{{number_format($sanpham->gia_tien)}}đ</p>
-                            <a class="productR_btn" href="{{route("client.cart_buy", $sanpham->ID_sanpham)}}">Thêm vào giỏ</a>
+                            <p class="prouductR_text_name"><a href="{{route('client.sanpham_info', $sanpham->ID_product)}}">{{$sanpham->product_name}}</a></p>
+                            <p class="productR_text_price">{{number_format($sanpham->money)}}đ</p>
+                            <a class="productR_btn" href="{{route("client.cart_buy", $sanpham->ID_product)}}">Thêm vào giỏ</a>
                         </div>
                     </div>
                     @endforeach

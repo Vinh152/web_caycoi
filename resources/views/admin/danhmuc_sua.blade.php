@@ -16,14 +16,14 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-validation">
-                                    <form class="form-valide" action="{{route('admin_danhmuc.update', $data->ID_danhmuc)}}" method="POST">
+                                    <form class="form-valide" action="{{route('admin_danhmuc.update', $data->ID_category)}}" method="POST">
                                         @csrf
                                         @method('PUT')
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="val-username">Tên danh mục <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control"  name="tendanhmuc" placeholder="Điền tên danh mục.." value="{{$data->ten_danh_muc}}">
+                                                <input type="text" class="form-control"  name="tendanhmuc" placeholder="Điền tên danh mục.." value="{{$data->category_name}}">
                                                 <p class="TC_error">@error('tendanhmuc') {{$message}} @enderror</p>
                                             </div>
                                         </div>
@@ -31,7 +31,7 @@
                                             <label class="col-lg-4 col-form-label" for="val-email">Icon danh mục <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control"  name="icon" placeholder="Chèn code icon vào.." value="{{$data->icon_danh_muc}}">
+                                                <input type="text" class="form-control"  name="icon" placeholder="Chèn code icon vào.." value="{{$data->category_icon}}">
                                                 <p class="TC_error">@error('icon')
                                                     {{$message}}
                                                       @enderror</p>
@@ -48,7 +48,7 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-lg-8 ml-auto">
-                                                <button type="submit" class="btn btn-primary">Submit (Sửa sản phẩm)</button>
+                                                <button type="submit" class="btn btn-primary">Submit (Sửa danh mục)</button>
                                             </div>
                                         </div>
                                     </form>

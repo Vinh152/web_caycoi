@@ -77,7 +77,7 @@
                     <div class="product_row responsive1">
                         @foreach ($sanphams as $sanpham)
                         <div class="product_item-6">
-                            <a href="{{route('client.sanpham_info', $sanpham->ID_sanpham)}}"><img class="product_item_img product_item_img-long" src="/img_sanpham/{{$sanpham->anh}}" alt=""></a>
+                            <a href="{{route('client.sanpham_info', $sanpham->ID_product)}}"><img class="product_item_img product_item_img-long" src="/img_sanpham/{{$sanpham->img}}" alt=""></a>
                         </div>
                         @endforeach
                     </div>
@@ -100,12 +100,12 @@
                     <div class="product_row responsive2">
                         @foreach ($sanphams as $sanpham)
                         <div class="product_item-5">
-                            <a href="{{route('client.sanpham_info', $sanpham->ID_sanpham)}}"><img class="product_item_img product_item_img-short" src="/img_sanpham/{{$sanpham->anh}}" alt=""></a>
+                            <a href="{{route('client.sanpham_info', $sanpham->ID_product)}}"><img class="product_item_img product_item_img-short" src="/img_sanpham/{{$sanpham->img}}" alt=""></a>
                             <div class="product_item_info">
-                                <p class="product_item_info_type"><a href="">{{$sanpham->ten_danh_muc}}</a></p>
-                                <h3 class="product_item_info_name"><a href="{{route('client.sanpham_info', $sanpham->ID_sanpham)}}">{{$sanpham->ten_san_pham}}</a></h3>
-                                <p class="product_item_info_price">{{number_format($sanpham->gia_tien)}}đ</p>
-                                <a class="btn btn-medium product_item-info-btn" href="{{route("client.cart_buy", $sanpham->ID_sanpham)}}">Thêm vào giỏ</a>
+                                <p class="product_item_info_type"><a href="">{{$sanpham->category_name}}</a></p>
+                                <h3 class="product_item_info_name"><a href="{{route('client.sanpham_info', $sanpham->ID_product)}}">{{$sanpham->product_name}}</a></h3>
+                                <p class="product_item_info_price">{{number_format($sanpham->money)}}đ</p>
+                                <a class="btn btn-medium product_item-info-btn" href="{{route("client.cart_buy", $sanpham->ID_product)}}">Thêm vào giỏ</a>
                             </div>
                         </div>
                         @endforeach
@@ -123,17 +123,17 @@
 
 
             <div class="product_frame"> <!--product frame phục vụ khung phần show sản phẩm -->
-                <p class="product_tittle">{{$bonsais->ten_danh_muc}}</p>
+                <p class="product_tittle">{{$bonsais->category_name}}</p>
                 <div class="product_outside"> <!--product outside phục vụ cho mũi tên chuyển của phần show sản phẩm -->
                     <div class="product_row responsive3">
                     @foreach ($bonsais->sanpham as $bonsai)
                         <div class="product_item-5">
-                            <a href="{{route('client.sanpham_info', $bonsai->ID_sanpham)}}"><img class="product_item_img product_item_img-short" src="/img_sanpham/{{$bonsai->anh}}" alt=""></a>
+                            <a href="{{route('client.sanpham_info', $bonsai->ID_product)}}"><img class="product_item_img product_item_img-short" src="/img_sanpham/{{$bonsai->img}}" alt=""></a>
                             <div class="product_item_info">
-                                <p class="product_item_info_type"><a href="">{{$bonsais->ten_danh_muc}}</a></p>
-                                <h3 class="product_item_info_name"><a href="{{route('client.sanpham_info', $bonsai->ID_sanpham)}}">{{$bonsai->ten_san_pham}}</a></h3>
-                                <p class="product_item_info_price">{{number_format($bonsai->gia_tien)}}đ</p>
-                                <a class="btn btn-medium product_item-info-btn" href="{{route("client.cart_buy", $bonsai->ID_sanpham)}}">Thêm vào giỏ</a>
+                                <p class="product_item_info_type"><a href="">{{$bonsais->category_name}}</a></p>
+                                <h3 class="product_item_info_name"><a href="{{route('client.sanpham_info', $bonsai->ID_product)}}">{{$bonsai->product_name}}</a></h3>
+                                <p class="product_item_info_price">{{number_format($bonsai->money)}}đ</p>
+                                <a class="btn btn-medium product_item-info-btn" href="{{route("client.cart_buy", $bonsai->ID_product)}}">Thêm vào giỏ</a>
                             </div>
                         </div>
                         @endforeach
@@ -152,17 +152,17 @@
 
 
             <div class="product_frame"> <!--product frame phục vụ khung phần show sản phẩm -->
-                <p class="product_tittle">{{$phongthuys->ten_danh_muc}}</p>
+                <p class="product_tittle">{{$phongthuys->category_name}}</p>
                 <div class="product_outside"> <!--product outside phục vụ cho mũi tên chuyển của phần show sản phẩm -->
                     <div class="product_row responsive4">
                         @foreach ($phongthuys->sanpham as $phongthuy)
                         <div class="product_item-5">
-                            <a href=""><img class="product_item_img product_item_img-short" src="/img_sanpham/{{$phongthuy->anh}}" alt=""></a>
+                            <a href=""><img class="product_item_img product_item_img-short" src="/img_sanpham/{{$phongthuy->img}}" alt=""></a>
                             <div class="product_item_info">
-                                <p class="product_item_info_type"><a href="">{{$phongthuy->ten_danh_muc}}</a></p>
-                                <h3 class="product_item_info_name"><a href="">{{$phongthuy->ten_san_pham}}</a></h3>
-                                <p class="product_item_info_price">{{number_format($phongthuy->gia_tien)}}đ</p>
-                                <a class="btn btn-medium product_item-info-btn" href="{{route("client.cart_buy", $phongthuy->ID_sanpham)}}">Thêm vào giỏ</a>
+                                <p class="product_item_info_type"><a href="">{{$phongthuy->category_name}}</a></p>
+                                <h3 class="product_item_info_name"><a href="">{{$phongthuy->product_name}}</a></h3>
+                                <p class="product_item_info_price">{{number_format($phongthuy->money)}}đ</p>
+                                <a class="btn btn-medium product_item-info-btn" href="{{route("client.cart_buy", $phongthuy->ID_product)}}">Thêm vào giỏ</a>
                             </div>
                         </div>
                         @endforeach
@@ -182,19 +182,19 @@
 
 
             <div class="product_frame"> <!--product frame phục vụ khung phần show sản phẩm -->
-                <p class="product_tittle">{{$sendas->ten_danh_muc}}</p>
+                <p class="product_tittle">{{$sendas->category_name}}</p>
                 <div class="product_outside"> <!--product outside phục vụ cho mũi tên chuyển của phần show sản phẩm -->
                     <div class="product_row responsive5">
                     @foreach ($sendas->sanpham as $senda)
                         
                     
                         <div class="product_item-5">
-                            <a href="{{route('client.sanpham_info', $senda->ID_sanpham)}}"><img class="product_item_img product_item_img-short" src="/img_sanpham/{{$senda->anh}}" alt=""></a>
+                            <a href="{{route('client.sanpham_info', $senda->ID_product)}}"><img class="product_item_img product_item_img-short" src="/img_sanpham/{{$senda->img}}" alt=""></a>
                             <div class="product_item_info">
-                                <p class="product_item_info_type"><a href="">{{$senda->ten_danh_muc}}</a></p>
-                                <h3 class="product_item_info_name"><a href="{{route('client.sanpham_info', $senda->ID_sanpham)}}">{{$senda->ten_san_pham}}</a></h3>
-                                <p class="product_item_info_price">{{number_format($senda->gia_tien)}}đ</p>
-                                <a class="btn btn-medium product_item-info-btn" href="{{route("client.cart_buy", $senda->ID_sanpham)}}">Thêm vào giỏ</a>
+                                <p class="product_item_info_type"><a href="">{{$senda->category_name}}</a></p>
+                                <h3 class="product_item_info_name"><a href="{{route('client.sanpham_info', $senda->ID_product)}}">{{$senda->product_name}}</a></h3>
+                                <p class="product_item_info_price">{{number_format($senda->money)}}đ</p>
+                                <a class="btn btn-medium product_item-info-btn" href="{{route("client.cart_buy", $senda->ID_product)}}">Thêm vào giỏ</a>
                             </div>
                         </div>
                         @endforeach
@@ -214,17 +214,17 @@
 
 
             <div class="product_frame"> <!--product frame phục vụ khung phần show sản phẩm -->
-                <p class="product_tittle">{{$vanphongs->ten_danh_muc}}</p>
+                <p class="product_tittle">{{$vanphongs->category_name}}</p>
                 <div class="product_outside"> <!--product outside phục vụ cho mũi tên chuyển của phần show sản phẩm -->
                     <div class="product_row responsive6">
                         @foreach ($vanphongs->sanpham as $vanphong)
                         <div class="product_item-5">
-                            <a href="{{route('client.sanpham_info', $vanphong->ID_sanpham)}}"><img class="product_item_img product_item_img-short" src="/img_sanpham/{{$vanphong->anh}}" alt=""></a>
+                            <a href="{{route('client.sanpham_info', $vanphong->ID_product)}}"><img class="product_item_img product_item_img-short" src="/img_sanpham/{{$vanphong->img}}" alt=""></a>
                             <div class="product_item_info">
-                                <p class="product_item_info_type"><a href="">{{$vanphong->ten_danh_muc}}</a></p>
-                                <h3 class="product_item_info_name"><a href="{{route('client.sanpham_info', $vanphong->ID_sanpham)}}">{{$vanphong->ten_san_pham}}</a></h3>
-                                <p class="product_item_info_price">{{number_format($vanphong->gia_tien)}}đ</p>
-                                <a class="btn btn-medium product_item-info-btn" href="{{route("client.cart_buy", $vanphong->ID_sanpham)}}">Thêm vào giỏ</a>
+                                <p class="product_item_info_type"><a href="">{{$vanphong->category_name}}</a></p>
+                                <h3 class="product_item_info_name"><a href="{{route('client.sanpham_info', $vanphong->ID_product)}}">{{$vanphong->product_name}}</a></h3>
+                                <p class="product_item_info_price">{{number_format($vanphong->money)}}đ</p>
+                                <a class="btn btn-medium product_item-info-btn" href="{{route("client.cart_buy", $vanphong->ID_product)}}">Thêm vào giỏ</a>
                             </div>
                         </div>
                         @endforeach
@@ -249,7 +249,7 @@
                 <div class="news_frame">
                 @foreach ($tintucs as $tintuc)
                     <div class="news_item">
-                        <a href=""><img class="news_item_img" src="/tin_tuc/{{$tintuc->anh}}" alt=""></a>
+                        <a href=""><img class="news_item_img" src="/tin_tuc/{{$tintuc->img}}" alt=""></a>
                         <div class="news_item_info">
                             <h2 class="news_item_info_tittle">{{$tintuc->ten_tin_tuc}}</h2>
                             <p class="news_item_info_time">{{$tintuc->created_at}}</p>

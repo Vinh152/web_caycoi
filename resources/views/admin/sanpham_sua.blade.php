@@ -15,14 +15,14 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-validation">
-                                    <form class="form-valide" action="{{route('admin_sanpham.update', $data_sanpham->ID_sanpham)}}" method="post" enctype="multipart/form-data">
+                                    <form class="form-valide" action="{{route('admin_sanpham.update', $data_sanpham->ID_product)}}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="val-username">Tên sản phẩm <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" name="tensanpham" placeholder="Điền tên sản phẩm..." value="{{$data_sanpham->ten_san_pham}}">
+                                                <input type="text" class="form-control" name="tensanpham" placeholder="Điền tên sản phẩm..." value="{{$data_sanpham->product_name}}">
                                                 <p class="TC_error">@error('tensanpham')
                                                     {{$message}}
                                                 @enderror</p>
@@ -72,7 +72,7 @@
                                             <label class="col-lg-4 col-form-label" for="val-password">Giá tiền <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" name="giatien" placeholder="Điền giá sản phẩm.." value="{{$data_sanpham->gia_tien}}">
+                                                <input type="text" class="form-control" name="giatien" placeholder="Điền giá sản phẩm.." value="{{$data_sanpham->money}}">
                                                 <p class="TC_error">@error('giatien') {{$message}} @enderror</p>
                                             </div>
                                         </div>
@@ -80,7 +80,7 @@
                                             <label class="col-lg-4 col-form-label" for="val-password">Số lượng <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" name="soluong" placeholder="Điền số lượng sản phẩm.." value="{{$data_chitiet->so_luong}}">
+                                                <input type="text" class="form-control" name="soluong" placeholder="Điền số lượng sản phẩm.." value="{{$data_chitiet->count}}">
                                                 <p class="TC_error">@error('soluong') {{$message}} @enderror</p>
                                             </div>
                                         </div>
@@ -93,7 +93,7 @@
                                                 <select class="form-control" name="ID_danhmuc">
                                                 <option value="1">Please select</option>
                                                 @foreach ($datas_danhmuc as $data_danhmuc)
-                                                    <option value="{{$data_danhmuc->ID_danhmuc}}">{{$data_danhmuc->ten_danh_muc}}</option>
+                                                    <option value="{{$data_danhmuc->ID_danhmuc}}">{{$data_danhmuc->category_name}}</option>
                                                     @endforeach
                                                 </select>
                                                 <p class="TC_error">@error('ID_danhmuc') {{$message}} @enderror</p>
@@ -105,7 +105,7 @@
                                             <label class="col-lg-4 col-form-label" for="val-suggestions">Mô tả <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <textarea class="form-control"  name="mota" rows="5" placeholder="Thông tin chi tiết bài viết?">{{$data_chitiet->mo_ta}}</textarea>
+                                                <textarea class="form-control"  name="mota" rows="5" placeholder="Thông tin chi tiết bài viết?">{{$data_chitiet->text}}</textarea>
                                                 <p class="TC_error">@error('mota') {{$message}} @enderror</p>
                                             </div>
                                         </div>

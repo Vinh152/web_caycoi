@@ -9,11 +9,11 @@ class Model_nhanvien extends Model
 {
     use HasFactory;
     protected $table="nhanvien";
-    protected $primaryKey="ID_nhanvien";
+    protected $primaryKey="ID_staff";
     public function login(){
-        return $this->hasOne(Model_login::class, "ID_nhanvien","ID_nhanvien");
+        return $this->hasOne(Model_login::class, "ID_staff","ID_staff");
     }
     public function giohang(){
-        return $this->hasMany(Model_giohang::class, "ID_nhanvien","ID_nhanvien");
+        return $this->hasMany(Model_giohang::class, "ID_staff","ID_staff");
     }
 }

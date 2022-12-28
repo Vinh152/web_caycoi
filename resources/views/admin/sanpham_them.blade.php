@@ -97,7 +97,7 @@
                                                 <select class="form-control" name="ID_danhmuc">
                                                 <option value="1">Please select</option>
                                                 @foreach ($datas_danhmuc as $data_danhmuc)
-                                                    <option value="{{$data_danhmuc->ID_danhmuc}}">{{$data_danhmuc->ten_danh_muc}}</option>
+                                                    <option value="{{$data_danhmuc->ID_category}}">{{$data_danhmuc->catogery_name}}</option>
                                                     @endforeach
                                                 </select>
                                                 <p class="TC_error">@error('ID_danhmuc') {{$message}} @enderror</p>

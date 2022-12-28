@@ -41,10 +41,10 @@
                                         <tbody>
                                             @foreach ($doanhthu as $row)
                                             <tr>
-                                                <td>{{$row->ID_giohang}}</td>
-                                                <td>{{$row->ho}} {{$row->ten}}</td>
+                                                <td>{{$row->ID_cart}}</td>
+                                                <td>{{$row->curname}} {{$row->name}}</td>
                                                 <td>{{$row->created_at}}</td>
-                                                <td>{{number_format($row->tong_don_hang)}}đ</td>
+                                                <td>{{number_format($row->total)}}đ</td>
                                             </tr>
                                             @endforeach
                                         </tbody>

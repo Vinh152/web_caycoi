@@ -34,12 +34,12 @@
                                         <tbody>
                                             @foreach ($chitiet as $row)
                                             <tr>
-                                                <td>{{$row->ID_giohang}}</td>
-                                                <td>{{$row->ID_sanpham}}</td>
-                                                <td>{{$row->ten_san_pham}}</td>
-                                                <td>{{number_format($row->gia_san_pham)}}đ</td>
-                                                <td>{{$row->so_luong}}</td>
-                                                <td>{{number_format($row->tong_cong)}}đ</td>
+                                                <td>{{$row->ID_cart}}</td>
+                                                <td>{{$row->ID_product}}</td>
+                                                <td>{{$row->product_name}}</td>
+                                                <td>{{number_format($row->money)}}đ</td>
+                                                <td>{{$row->count}}</td>
+                                                <td>{{number_format($row->total)}}đ</td>
                                             </tr>
                                             @endforeach
                                         </tbody>

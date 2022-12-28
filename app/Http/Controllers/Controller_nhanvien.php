@@ -58,11 +58,11 @@ class Controller_nhanvien extends Controller
             $file->move(public_path('avatar'), $file_name);
         }
         $nhanvien= new Model_nhanvien();
-        $nhanvien->ho_ten=$request->hoten;
-        $nhanvien->ngay_sinh=$request->ngaysinh;
+        $nhanvien->curname=$request->hoten;
+        $nhanvien->birth=$request->ngaysinh;
         $nhanvien->email=$request->email;
-        $nhanvien->gioi_tinh=$request->gioitinh;
-        $nhanvien->chucvu=$request->chucvu;
+        $nhanvien->sex=$request->gioitinh;
+        $nhanvien->position=$request->chucvu;
         $nhanvien->save();
         return redirect()->route('admin_nhanvien.index');
     }
@@ -118,18 +118,18 @@ class Controller_nhanvien extends Controller
             $file=$request->avatar;
             $file_name=$file->getClientOriginalName();
             $file->move(public_path('avatar'), $file_name);
-            $nhanvien->ho_ten=$request->hoten;
-            $nhanvien->ngay_sinh=$request->ngaysinh;
+            $nhanvien->curname=$request->hoten;
+            $nhanvien->birth=$request->ngaysinh;
             $nhanvien->email=$request->email;
-            $nhanvien->gioi_tinh=$request->gioitinh;
-            $nhanvien->chucvu=$request->chucvu;
+            $nhanvien->sex=$request->gioitinh;
+            $nhanvien->position=$request->chucvu;
         }
         else{
-            $nhanvien->ho_ten=$request->hoten;
-            $nhanvien->ngay_sinh=$request->ngaysinh;
+            $nhanvien->curname=$request->hoten;
+            $nhanvien->birth=$request->ngaysinh;
             $nhanvien->email=$request->email;
-            $nhanvien->gioi_tinh=$request->gioitinh;
-            $nhanvien->chucvu=$request->chucvu;
+            $nhanvien->sex=$request->gioitinh;
+            $nhanvien->position=$request->chucvu;
         }
         $nhanvien->save();
         return redirect()->route('admin_nhanvien.index');

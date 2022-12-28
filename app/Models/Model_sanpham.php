@@ -9,15 +9,15 @@ class Model_sanpham extends Model
 {
     use HasFactory;
     protected $table="sanpham";
-    protected $primaryKey="ID_sanpham";
+    protected $primaryKey="ID_product";
     public $incrementing = false;
     public function danhmuc(){
-        return $this->belongsToMany(Model_danhmuc::class, "ID_danhmuc", "ID_danhmuc");
+        return $this->belongsToMany(Model_danhmuc::class, "ID_category", "ID_category");
     }
     public function chitietsanpham(){
-        return $this->hasOne(Model_chitietsanpham::class, "ID_sanpham","ID_sanpham");
+        return $this->hasOne(Model_chitietsanpham::class, "ID_product","ID_product");
     }
     public function danhgia(){
-        return $this->hasMany(Model_danhgia::class, "ID_sanpham","ID_sanpham");
+        return $this->hasMany(Model_danhgia::class, "ID_product","ID_product");
     }
 }

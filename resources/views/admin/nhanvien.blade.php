@@ -34,14 +34,14 @@
                                         <tbody>
                                         @foreach ($datas as $data)
                                             <tr>
-                                                <td>{{$data->ID_nhanvien}}</td>
-                                                <td>{{$data->ho_ten}}</td>
+                                                <td>{{$data->ID_staff}}</td>
+                                                <td>{{$data->name}}</td>
                                                 <td><img class="TC_img_card TC_img_card-30" src="/tin_tuc/{{$data->anh}}" alt=""></td>
-                                                <td>{{$data->ngay_sinh}}</td>
+                                                <td>{{$data->birth}}</td>
                                                 <td>{{$data->email}}</td>
-                                                <td>{{$data->gioi_tinh}}</td>
-                                                <td>{{$data->chucvu}}</td>
-                                                <td><p class="TC-column"><form class="TC_form_function" method="GET" action="{{route('admin_nhanvien.edit',$data->ID_nhanvien)}}"><button class="TC_btn_function TC_btn_function-fix"><i class="fa-solid fa-wrench"></i> Sửa</button></form>
+                                                <td>{{$data->sex}}</td>
+                                                <td>{{$data->position}}</td>
+                                                <td><p class="TC-column"><form class="TC_form_function" method="GET" action="{{route('admin_nhanvien.edit',$data->ID_staff)}}"><button class="TC_btn_function TC_btn_function-fix"><i class="fa-solid fa-wrench"></i> Sửa</button></form>
                                                     <form class="TC_form_function" action="{{route('admin_nhanvien.destroy',$data->ID_nhanvien)}}" method="POST" onSubmit="if(!confirm('Bạn có muốn xóa nhân viên không')){return false;}">
                                                         @csrf 
                                                         @method('DELETE')

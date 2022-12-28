@@ -55,10 +55,10 @@ class Controller_doanhthu extends Controller
         $tongdoanhthu=session()->get("tongdoanhthu");
         $doanhthu=new Model_doanhthu();
         $tendoanhthu="Doanh thu tổng đơn hàng của tháng ".$thang." năm ".$nam;
-        $doanhthu->ten_doanh_thu=$tendoanhthu;
-        $doanhthu->thang=$thang;
-        $doanhthu->nam=$nam;
-        $doanhthu->tong_doanh_thu=$tongdoanhthu;
+        $doanhthu->revenue=$tendoanhthu;
+        $doanhthu->month=$thang;
+        $doanhthu->year=$nam;
+        $doanhthu->total=$tongdoanhthu;
         $doanhthu->save();
         return redirect()->route("doanhthu.index");
     }

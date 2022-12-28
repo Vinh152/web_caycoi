@@ -18,9 +18,9 @@
                 <div class="main-left-list-frame">
                  @foreach ($tintuc_5 as $tintuc5 )
                     <div class="main-left-list-frame-item">
-                        <div class="main-left-list-frame-item-img"><a href="{{route("client.tintuc_info", $tintuc5->ID_tintuc)}}"><img src="/tin_tuc/{{$tintuc5->anh}}" alt=""></a></div>
+                        <div class="main-left-list-frame-item-img"><a href="{{route("client.tintuc_info", $tintuc5->ID_new)}}"><img src="/tin_tuc/{{$tintuc5->img}}" alt=""></a></div>
                         <div class="main-left-list-frame-item-text">
-                            <p><a href="{{route("client.tintuc_info", $tintuc5->ID_tintuc)}}">{{$tintuc5->loi_ngan_gon}}</a></p>
+                            <p><a href="{{route("client.tintuc_info", $tintuc5->ID_new)}}">{{$tintuc5->tittle}}</a></p>
                         </div>
                     </div>
                     @endforeach
@@ -35,10 +35,10 @@
         <div class="main-right">
             @foreach ($tintucs as $tintuc )
             <div class="main-right-item">
-                <a href="{{route("client.tintuc_info", $tintuc->ID_tintuc)}}"><img src="/tin_tuc/{{$tintuc->anh}}" alt=""></a>
+                <a href="{{route("client.tintuc_info", $tintuc->ID_new)}}"><img src="/tin_tuc/{{$tintuc->img}}" alt=""></a>
                 <div class="main-right-item-text">
-                    <h2 class="main-right-item-text-tittle"><a href="{{route("client.tintuc_info", $tintuc->ID_tintuc)}}">{{$tintuc->ten_tin_tuc}}</a></h2>
-                    <p class="main-right-item-text-information"><a href="{{route("client.tintuc_info", $tintuc->ID_tintuc)}}">{{$tintuc->loi_ngan_gon}}</a></p>
+                    <h2 class="main-right-item-text-tittle"><a href="{{route("client.tintuc_info", $tintuc->ID_new)}}">{{$tintuc->new_name}}</a></h2>
+                    <p class="main-right-item-text-information"><a href="{{route("client.tintuc_info", $tintuc->ID_new)}}">{{$tintuc->tittle}}</a></p>
                 </div>
     
                 <div class="main-right-item-time">

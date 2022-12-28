@@ -32,14 +32,14 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>{{$data->ID_sanpham}}</td>
-                                                <td><img class="TC_img_card TC_img_card-100" src="/img_sanpham/{{$data->anh1}}" alt=""></td>
-                                                <td><img class="TC_img_card TC_img_card-100" src="/img_sanpham/{{$data->anh2}}" alt=""></td>
-                                                <td><img class="TC_img_card TC_img_card-100" src="/img_sanpham/{{$data->anh3}}" alt=""></td>
-                                                <td><img class="TC_img_card TC_img_card-100" src="/img_sanpham/{{$data->anh4}}" alt=""></td>
-                                                <td>{{$data->so_luong}}</td>
+                                                <td>{{$data->ID_product}}</td>
+                                                <td><img class="TC_img_card TC_img_card-100" src="/img_sanpham/{{$data->img1}}" alt=""></td>
+                                                <td><img class="TC_img_card TC_img_card-100" src="/img_sanpham/{{$data->img2}}" alt=""></td>
+                                                <td><img class="TC_img_card TC_img_card-100" src="/img_sanpham/{{$data->img3}}" alt=""></td>
+                                                <td><img class="TC_img_card TC_img_card-100" src="/img_sanpham/{{$data->img4}}" alt=""></td>
+                                                <td>{{$data->count}}</td>
                                                 <td class="TC_width-mota"><div class="TC_td-hide">
-                                                    {{$data->mo_ta}}    
+                                                    {{$data->text}}    
                                                 </div></td>
                                             </tr>
                                         </tbody>

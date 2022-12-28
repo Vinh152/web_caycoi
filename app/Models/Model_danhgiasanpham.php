@@ -10,6 +10,6 @@ class Model_danhgiasanpham extends Model
     use HasFactory;
     protected $table="danhgiasanpham";
     public function sanpham(){
-        return $this->belongsToMany(Model_sanpham::class, "ID_sanpham", "ID_sanpham");
+        return $this->belongsToMany(Model_sanpham::class, "ID_product", "ID_product");
     }
 }

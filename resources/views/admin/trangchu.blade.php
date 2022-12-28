@@ -23,7 +23,7 @@
                                     @php
                                     $tong_doanh_thu=0;
                                         foreach ($count_giohang as $tong_don) {
-                                            $tong_doanh_thu=$tong_doanh_thu+$tong_don->tong_don_hang;
+                                            $tong_doanh_thu=$tong_doanh_thu+$tong_don->total;
                                         }
                                         echo number_format($tong_doanh_thu);
                                     @endphp

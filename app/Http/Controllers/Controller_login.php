@@ -31,8 +31,8 @@ class Controller_login extends Controller
         {
             if(Hash::check($request->password, $login->password))
             {
-                $nhanvien= Model_nhanvien::find($login->ID_nhanvien);
-                $request->session()->put('ten_nhanvien', $nhanvien->ho_ten);
+                $nhanvien= Model_nhanvien::find($login->ID_staff);
+                $request->session()->put('ten_nhanvien', $nhanvien->curname);
                 return redirect()->route('admin.home');
             }
             else{
@@ -60,16 +60,16 @@ class Controller_login extends Controller
             'nhaplai_password.required'=>'Mời bạn nhập thông tin vào',
     ]);
     $dangky= new Model_login();
-    $nhanvien= Model_nhanvien::find($request->ID_nhanvien);
+    $nhanvien= Model_nhanvien::find($request->ID_staff);
     if($nhanvien)
     {
         if($request->password==$request->nhaplai_password)
     {
-    $dangky->ID_nhanvien=$request->ID_nhanvien;
+    $dangky->ID_nhanvien=$request->ID_staff;
     $dangky->email=$request->email;
     $dangky->password=Hash::make($request->password);
-    $dangky->cau_hoi='hello bạn';
-    $dangky->tra_loi='yo xin chào';
+    $dangky->question='hello bạn';
+    $dangky->answer='yo xin chào';
     $dangky->save();
     return redirect()->route('admin_login.index');
     }

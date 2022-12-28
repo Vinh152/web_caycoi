@@ -10,7 +10,7 @@ class Model_login extends Model
     use HasFactory;
     protected $table="loginnhanvien";
     public function chitietsanpham(){
-        return $this->belongsTo(Model_nhanvien::class, "ID_nhanvien","ID_nhanvien");
+        return $this->belongsTo(Model_nhanvien::class, "ID_staff","ID_staff");
     }
     
 }

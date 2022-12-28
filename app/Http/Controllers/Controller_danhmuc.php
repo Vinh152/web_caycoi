@@ -50,8 +50,8 @@ class Controller_danhmuc extends Controller
             "icon.required"=>"Mời bạn điền icon danh mục(lên google search font awesome để lấy icon)",
         ]);
         $danhmuc=new Model_danhmuc();
-        $danhmuc->ten_danh_muc=$request->tendanhmuc;
-        $danhmuc->icon_danh_muc=$request->icon;
+        $danhmuc->category_name=$request->tendanhmuc;
+        $danhmuc->category_icon=$request->icon;
         $danhmuc->save();
         return redirect()->route('admin_danhmuc.index');
     }
@@ -75,7 +75,7 @@ class Controller_danhmuc extends Controller
      */
     public function edit($id)
     {
-        $data= Model_danhmuc::where("Id_danhmuc", $id)->first();
+        $data= Model_danhmuc::where("ID_cayegory", $id)->first();
         return view("admin.danhmuc_sua", compact("data"));
     }
 
@@ -97,8 +97,8 @@ class Controller_danhmuc extends Controller
             "tendanhmuc.required"=>"Mời bạn điền tên danh mục",
             "icon.required"=>"Mời bạn điền icon danh mục(lên google search font awesome để lấy icon)",
         ]);
-        $danhmuc->ten_danh_muc=$request->tendanhmuc;
-        $danhmuc->icon_danh_muc=$request->icon;
+        $danhmuc->category_name=$request->tendanhmuc;
+        $danhmuc->category_icon=$request->icon;
         $danhmuc->save();
         return redirect()->route('admin_danhmuc.index');
     }
@@ -111,7 +111,7 @@ class Controller_danhmuc extends Controller
      */
     public function destroy($id)
     {
-        $danhmuc= Model_danhmuc::where("ID_danhmuc", $id)->first();
+        $danhmuc= Model_danhmuc::where("ID_category", $id)->first();
         $danhmuc->delete();
         return redirect()->route('admin_danhmuc.index');
     }
